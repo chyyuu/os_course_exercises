@@ -89,7 +89,6 @@
 	Load R1,x  		load R2,x  
 	inc R1     		dec R2     
 	store x,R1 		store x,R2
-     
 两个操作完成后，x的值（）
 - [ ] 可能为-1或3   
 - [ ] 只能为1
