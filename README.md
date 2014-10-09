@@ -2,7 +2,7 @@
 
 这里搜集了很多操作系统课程相关的习题，包括部分考研试题。
 
-采用gitbook的方式展现，通过[gitbook](https://www.gitbook.io/book/xuyongjiande/os_exercises)访问，可进行在线交互式答题。
+采用gitbook的方式展现，通过[gitbook](https://www.gitbook.io/book/xuyongjiande/os\_exercises)访问，可进行在线交互式答题。
 
 下面是gitbook提供的试题编写的例子：
 
