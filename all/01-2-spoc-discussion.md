@@ -5,10 +5,7 @@
 ---
 
 分析你所认识的操作系统（Windows、Linux、FreeBSD、Android、iOS）所具有的独特和共性的功能？
-- [ ]  
 - [x]  
-- [ ]  
-- [ ]  
 
 > 解释：...
 
