@@ -6,6 +6,7 @@
     * [lec0 SPOC讨论](all/01-2-spoc-discussion.md)
     * [lab0 SPOC讨论](all/01-3-lab0-spoc-discussion.md)
 * [中断、异常和系统调用](all/2-intr.md)
+    * [lab1 SPOC讨论](all/02-2-lab1-spoc-discussion.md)
 * [物理内存管理](all/3&4-pmm.md)
 * [虚拟内存管理](all/5&6-vmm.md)
 * [进程、线程管理](all/7-process&thread.md)
