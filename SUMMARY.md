@@ -2,6 +2,7 @@
 
 * [示例](README.md)
 * [Intro](all/1-intro.md)
+ * [问卷](all/01-1-questionnaire.md)
 * [中断、异常和系统调用](all/2-intr.md)
 * [物理内存管理](all/3&4-pmm.md)
 * [虚拟内存管理](all/5&6-vmm.md)
