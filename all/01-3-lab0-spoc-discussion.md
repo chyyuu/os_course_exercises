@@ -7,7 +7,7 @@
 能否读懂ucore中的AT&T格式的X86-32汇编语言？请列出你不理解的汇编语言。
 - [x]  
 
->  
+>  http://www.imada.sdu.dk/Courses/DM18/Litteratur/IntelnATT.htm
 
 虽然学过计算机原理和x86汇编（根据THU-CS的课程设置），但对ucore中涉及的哪些硬件设计或功能细节不够了解？
 - [x]  
