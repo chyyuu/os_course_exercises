@@ -58,31 +58,25 @@ ucore lab实验
 
 > 
 
----
-
----
-
 对于如下的代码段，请说明”：“后面的数字是什么含义
-> /* Gate descriptors for interrupts and traps */
-> struct gatedesc {
->    unsigned gd_off_15_0 : 16;        // low 16 bits of offset in segment
->    unsigned gd_ss : 16;            // segment selector
->    unsigned gd_args : 5;            // # args, 0 for interrupt/trap gates
->    unsigned gd_rsv1 : 3;            // reserved(should be zero I guess)
->    unsigned gd_type : 4;            // type(STS_{TG,IG32,TG32})
->    unsigned gd_s : 1;                // must be 0 (system)
->    unsigned gd_dpl : 2;            // descriptor(meaning new) privilege level
->    unsigned gd_p : 1;                // Present
->    unsigned gd_off_31_16 : 16;        // high bits of offset in segment
-> };
+```
+ /* Gate descriptors for interrupts and traps */
+ struct gatedesc {
+    unsigned gd_off_15_0 : 16;        // low 16 bits of offset in segment
+    unsigned gd_ss : 16;            // segment selector
+    unsigned gd_args : 5;            // # args, 0 for interrupt/trap gates
+    unsigned gd_rsv1 : 3;            // reserved(should be zero I guess)
+    unsigned gd_type : 4;            // type(STS_{TG,IG32,TG32})
+    unsigned gd_s : 1;                // must be 0 (system)
+    unsigned gd_dpl : 2;            // descriptor(meaning new) privilege level
+    unsigned gd_p : 1;                // Present
+    unsigned gd_off_31_16 : 16;        // high bits of offset in segment
+ };
+ ```
 
 - [x]  
 
 > 
-
----
-
----
 
 对于如下的代码段，
 ```
@@ -109,10 +103,6 @@ SETGATE(intr, 0,1,2,3);
 - [x]  
 
 > 
-
----
-
----
 
 请分析 [list.h](https://github.com/chyyuu/ucore_lab/blob/master/labcodes/lab2/libs/list.h)内容中大致的含义，并能include这个文件，利用其结构和功能编写一个数据结构链表操作的小C程序
 - [x]  
