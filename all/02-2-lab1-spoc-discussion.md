@@ -55,10 +55,6 @@ lab1中完成对函数调用链的显示有何好处？
 
 > 
 
-请分析 [list.h](https://github.com/chyyuu/ucore_lab/blob/master/labcodes/lab2/libs/list.h)内容中大致的含义，并能include这个文件，利用其结构和功能编写一个数据结构链表操作的小C程序
-- [x]  
-
-> 
 
 ---
 
