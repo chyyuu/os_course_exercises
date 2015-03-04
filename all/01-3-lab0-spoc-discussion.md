@@ -14,10 +14,6 @@
 
 >   
 
-请给出你觉得的中断的作用是什么？使用中断有何利弊？
-- [x]  
-
->   
 
 哪些困难（请分优先级）会阻碍你自主完成lab实验？
 - [x]  
@@ -50,17 +46,12 @@
 
 > 
 
-熟悉基本的git命令，从github上（http://www.github.com/chyyuu/ucore_lab）下载ucore lab实验
+熟悉基本的git命令，从github上的[ucore git repo](http://www.github.com/chyyuu/ucore_lab)下载ucore lab实验
 - [x]  
 
 > 
 
 尝试用qemu+gdb（or ECLIPSE-CDT）调试lab1
-- [x]  
-
-> 
-
-如何实现能响应除零错误异常的异常服务例程的lab0？
 - [x]  
 
 > 
