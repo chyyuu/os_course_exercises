@@ -58,6 +58,10 @@ ucore lab实验
 
 > 
 
+---
+
+---
+
 对于如下的代码段，请说明”：“后面的数字是什么含义
 ```
 /* Gate descriptors for interrupts and traps */
