@@ -88,6 +88,7 @@ struct gatedesc {
     (gate).gd_p = 1;                                    \
     (gate).gd_off_31_16 = (uint32_t)(off) >> 16;        \
 }
+```
 如果在其他代码段中有如下语句，
 ```
 unsigned intr;
