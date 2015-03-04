@@ -63,7 +63,7 @@ ucore lab实验
 ---
 
 对于如下的代码段，请说明”：“后面的数字是什么含义
-```
+`
 /* Gate descriptors for interrupts and traps */
 struct gatedesc {
     unsigned gd_off_15_0 : 16;        // low 16 bits of offset in segment
@@ -76,7 +76,7 @@ struct gatedesc {
     unsigned gd_p : 1;                // Present
     unsigned gd_off_31_16 : 16;        // high bits of offset in segment
 };
-```
+`
 
 - [x]  
 
