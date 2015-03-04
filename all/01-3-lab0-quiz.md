@@ -17,10 +17,17 @@
 
 - [ ] eclipse CDT
 - [x] Scitools Understand
-- [ ] GCC
-- [ ] QEMU
+- [ ] gcc
+- [ ] qemu
 
 >  Scitools Understand 是非开源软件，主要可以用于分析代码，可免费试用一段时间。
+
+在ucore lab的实验环境搭建中，用来模拟一台PC机（即基于Intel 80386 CPU的计算机）的软件是()
+
+- [ ] apt
+- [ ] git
+- [ ] meld
+- [x] qemu
 
 ---
 
