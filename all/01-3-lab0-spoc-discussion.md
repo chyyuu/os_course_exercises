@@ -47,12 +47,12 @@
 > 
 
 熟悉基本的git命令行操作命令，从github上的[ucore git repo](http://www.github.com/chyyuu/ucore_lab)下载ucore lab实验
-- [x]  
+- [x] 
 
 > 
 
 尝试用qemu+gdb（or ECLIPSE-CDT）调试lab1
-- [x]  
+- [x] 
 
 > 
 
@@ -71,6 +71,7 @@ struct gatedesc {
     unsigned gd_off_31_16 : 16;        // high bits of offset in segment
 };
 ```
+
 - [x]  
 
 > 
@@ -89,6 +90,7 @@ struct gatedesc {
     (gate).gd_off_31_16 = (uint32_t)(off) >> 16;        \
 }
 ```
+
 如果在其他代码段中有如下语句，
 ```
 unsigned intr;
@@ -96,6 +98,7 @@ intr=8;
 SETGATE(intr, 0,1,2,3);
 ```
 请问执行上述指令后， intr的值是多少？
+
 - [x]  
 
 > 
