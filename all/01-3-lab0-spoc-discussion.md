@@ -56,6 +56,21 @@
 
 > 
 
+对于如下的代码段，请说明”：“后面的数字是什么含义
+```
+/* Gate descriptors for interrupts and traps */
+struct gatedesc {
+    unsigned gd_off_15_0 : 16;        // low 16 bits of offset in segment
+    unsigned gd_ss : 16;            // segment selector
+    unsigned gd_args : 5;            // # args, 0 for interrupt/trap gates
+...
+};
+```
+- [x]  
+
+> 
+
+
 ---
 
 ## 开放思考题
