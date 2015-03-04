@@ -58,10 +58,6 @@ ucore lab实验
 
 > 
 
----
-
----
-
 对于如下的代码段，请说明”：“后面的数字是什么含义
 ```
 /* Gate descriptors for interrupts and traps */
@@ -96,7 +92,6 @@ struct gatedesc {
     (gate).gd_off_31_16 = (uint32_t)(off) >> 16;        \
 }
 ```
-
 如果在其他代码段中有如下语句，
 ```
 unsigned intr;
