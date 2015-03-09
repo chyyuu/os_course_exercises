@@ -7,7 +7,7 @@
 80386机器加电启动后，CPU立刻跳转到()执行
 
 - [ ] ucore第一条指令
-- [] bootloader第一条指令
+- [ ] bootloader第一条指令
 - [x] BIOS的第一条指令
 - [ ] GRUB的第一条指令
 
@@ -16,7 +16,7 @@
 应用程序中的C函数调用中不需要用到()指令
 
 - [ ] push
-- [] ret
+- [ ] ret
 - [x]  iret
 - [ ] call
 
