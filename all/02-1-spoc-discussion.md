@@ -14,12 +14,12 @@
 
 ## 3.3 中断、异常和系统调用比较
  1. 举例说明Linux中有哪些中断，哪些异常？
- 1. Linux的系统调用有哪些？大致的功能分类有哪些？
- 1. 以ucore lab8为例，uCore的系统调用有哪些？大致的功能分类有哪些？
+ 1. Linux的系统调用有哪些？大致的功能分类有哪些？  (2wl1)
+ 1. 以ucore lab8为例，uCore的系统调用有哪些？大致的功能分类有哪些？(2wl1)
  
 ## 3.4 linux系统调用分析
- 1. 通过分析[lab1_ex0](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab1/lab1-ex0.md)了解Linux应用的系统调用编写和含义。
- 1. 通过调试[lab1_ex1](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab1/lab1-ex1.md)了解Linux应用的系统调用执行过程。
+ 1. 通过分析[lab1_ex0](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab1/lab1-ex0.md)了解Linux应用的系统调用编写和含义。(2wl1)
+ 1. 通过调试[lab1_ex1](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab1/lab1-ex1.md)了解Linux应用的系统调用执行过程。(2wl1)
  
 ## 3.5 ucore系统调用分析
  1. ucore的系统调用中参数传递代码分析。
