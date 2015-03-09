@@ -2,6 +2,11 @@
 
 ## 个人思考题
 
+NOTICE
+- 有"w2l2"标记的题是助教要提交到学堂在线上的。
+- 有"w2l2"和"spoc"标记的题是要求拿清华学分的同学要在实体课上完成，并按时提交到学生对应的git repo上。
+- 有"hard"标记的题有一定的难度，鼓励实现，在4月1日前完成即可。
+
 ---
 
 请描述ucore OS配置和驱动外设时钟的准备工作包括哪些步骤？ (w2l2)
@@ -17,11 +22,25 @@
 >  
 
 lab1中完成了对哪些外设的访问？ (w2l2)
+ ```
+  + 采分点：说明了ucore OS访问的外设
+  - 答案没有涉及如下3点；（0分）
+  - 说明了时钟（1分）
+  - 除第二点外，进一步说明了串口（2分）
+  - 除上述两点外，进一步说明了并口，或说明了CGA，或说明了键盘（3分）
+ ```
 - [x]  
 
 >  
 
 lab1中的cprintf函数最终通过哪些外设完成了对字符串的输出？ (w2l2)
+ ```
+  + 采分点：说明了cprintf函数用到的3个外设
+  - 答案没有涉及如下3点；（0分）
+  - 说明了串口（1分）
+  - 除第二点外，进一步说明了并口（2分）
+  - 除上述两点外，进一步说明了CGA（3分）
+ ```
 - [x]  
 
 >  
@@ -32,17 +51,17 @@ lab1中的cprintf函数最终通过哪些外设完成了对字符串的输出？
 
 ---
 
-lab1中printfmt函数用到了可变参，请参考写一个小的linux应用程序，实定义和调用一个可变参数的函数。(w2l2)
+lab1中printfmt函数用到了可变参，请参考写一个小的linux应用程序，实定义和调用一个可变参数的函数。(spoc)
 - [x]  
 
 
 
-如果让你来一个阶段一个阶段地从零开始完整实现lab1（不是现在的填空考方式），你的实现步骤是什么？（比如先实现一个可显示字符串的bootloader（描述一下要实现的关键步骤和需要注意的事项），再实现一个可加载ELF格式文件的bootloader（再描述一下进一步要实现的关键步骤和需要注意的事项）...） (w2l2)
+如果让你来一个阶段一个阶段地从零开始完整实现lab1（不是现在的填空考方式），你的实现步骤是什么？（比如先实现一个可显示字符串的bootloader（描述一下要实现的关键步骤和需要注意的事项），再实现一个可加载ELF格式文件的bootloader（再描述一下进一步要实现的关键步骤和需要注意的事项）...） (spoc)
 - [x]  
 
 > 
 
-如何裁减lab1, 实现一个可显示字符串"THU LAB1"且依然能够正确加载ucore OS的bootloader？如果不能完成实现，请说明理由。(w2l2)
+如何裁减lab1, 实现一个可显示字符串"THU LAB1"且依然能够正确加载ucore OS的bootloader？如果不能完成实现，请说明理由。(spoc)
 - [x]  
 
 > 
@@ -60,12 +79,12 @@ lab1中printfmt函数用到了可变参，请参考写一个小的linux应用程
 > 
 
 
-在lab1/bin目录下，通过`objcopy -O binary kernel kernel.bin`可以把elf格式的ucore kernel转变成体积更小巧的binary格式的ucore kernel。为此，需要如何修改lab1的bootloader, 能够实现正确加载binar格式的ucore OS？
+在lab1/bin目录下，通过`objcopy -O binary kernel kernel.bin`可以把elf格式的ucore kernel转变成体积更小巧的binary格式的ucore kernel。为此，需要如何修改lab1的bootloader, 能够实现正确加载binar格式的ucore OS？ (hard)
 - [x]  
 
 >
 
-GRUB是一个通用的bootloader，被用于加载多种操作系统。如果放弃lab1的bootloader，采用GRU来加载ucore OS，请问需要如何修改lab1, 能够实现此需求？
+GRUB是一个通用的bootloader，被用于加载多种操作系统。如果放弃lab1的bootloader，采用GRU来加载ucore OS，请问需要如何修改lab1, 能够实现此需求？ (hard)
 - [x]  
 
 >
