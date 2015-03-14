@@ -26,7 +26,7 @@ NOTICE
 
 ## 小组思考题
 
-请参考ucore lab2代码，采用`struct pmm_manager` 根据选择四种（最优匹配，最差匹配，最先匹配，buddy systemm）分配算法中的一种，在应用程序层面来实现，并给出测试用例。
+请参考ucore lab2代码，采用`struct pmm_manager` 根据你的`学号 mod 4`的结果值，选择四种（0:最优匹配，1:最差匹配，2:最先匹配，3:buddy systemm）分配算法中的一种，在应用程序层面来实现，并给出测试用例。 (spoc)
 
 --- 
 
