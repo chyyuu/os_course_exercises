@@ -48,10 +48,10 @@ L1和L2高速缓存有什么区别？
 - [x]  
 
 >  http://superuser.com/questions/196143/where-exactly-l1-l2-and-l3-caches-located-in-computer
-Where exactly L1, L2 and L3 Caches located in computer?
+>  Where exactly L1, L2 and L3 Caches located in computer?
 
-http://en.wikipedia.org/wiki/CPU_cache
-CPU cache
+>  http://en.wikipedia.org/wiki/CPU_cache
+>  CPU cache
 
 ### 5.2 地址空间和地址生成
 编译、链接和加载的过程了解？
