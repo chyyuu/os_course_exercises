@@ -38,7 +38,16 @@ NOTICE
 
 ### 5.1 计算机体系结构和内存层次
 MMU的工作机理？
+
+- [x]  
+
+>  http://en.wikipedia.org/wiki/Memory_management_unit
+
 L1和L2高速缓存的结构和工作机理？
+
+- [x]  
+
+>  
 
 ### 5.2 地址空间和地址生成
 编译、链接和加载的过程了解？
