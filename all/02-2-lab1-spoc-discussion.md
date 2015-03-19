@@ -236,6 +236,17 @@ gcc编译、ld链接和dd生成两个映像对应的makefile脚本行？
 
 - [x]  
 
+对于如下5条语句执行后得到的5个eip（类型为uint32_t）的结果的数值关系是什么？
+```
+  eip = ((uint32_t *)ebp)[2];
+  eip = ((uint32_t *)ebp)[1];
+  eip = ((uint32_t *)(ebp+4);
+  eip = ((uint32_t *)(ebp+2);
+  eip = ((uint32_t *)(ebp+1);
+```        
+
+- [x]  
+
 > 
 
 ---
