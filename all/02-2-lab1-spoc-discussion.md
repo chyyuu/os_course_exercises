@@ -221,8 +221,23 @@ GDT内容的设置格式？初始映射的基址和长度？特权级的设置�
 gcc编译、ld链接和dd生成两个映像对应的makefile脚本行？
 
 - [x]  
+> 
+
+在函数print_stackframe中要调用函数print_debuginfo(uintptr_t eip)来打印函数源码位置信息，
+```
+  print_stackframe(void)
+   eip = read_eip();
+   #option 1
+   print_debuginfo(eip - 1);
+   #option 2
+   print_debuginfo(eip );
+```
+请问option1和 option2 的结有何区别？请说明。
+
+- [x]  
 
 > 
+
 ---
 
 ### 4.6 练习二 qemu和gdb的使用
