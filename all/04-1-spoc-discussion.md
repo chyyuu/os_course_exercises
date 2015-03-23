@@ -11,17 +11,19 @@ NOTICE
 
 ## 个人思考题
 ---
-(1)(w4l2)下面是一个体现内存访问局部性好的简应用程序例子，在linux中写一个简应用程序，体现内存局部性差。
+(1)(w4l2)下面是一个体现内存访问局部性好的简单应用程序例子，请参考，在linux中写一个简单应用程序，体现内存局部性差，并给出其执行时间。
 ```
 #include <stdio.h>
 #define NUM 1024
+#define COUNT 10
 int A[NUM][NUM];
 void main (void) {
   int i,j,k;
-  for (i = 0; j < NUM; j++)
-  for (j = 0; i < NUM; i++)
-      A[i][j] = 0;
-  printf("%d count computing over!\n",i*j);
+  for (k = 0; k<COUNT; k++)
+  for (i = 0; i < NUM; i++)
+  for (j = 0; j	 < NUM; j++)
+      A[i][j] = i+j;
+  printf("%d count computing over!\n",i*j*k);
 }
 ```
 可以用下的命令来编译和运行此程序：
@@ -33,8 +35,7 @@ time ./goodlocality
 
 ## 小组思考题目
 
-（1）缺页异常可用于虚拟内存管理中。如果在中断服务例程中进行缺页异常的处理时，再次出现缺页异常，这时计算机系统（软件或硬件）会如何处理？请给出你的合理思考和解释。
-
+（1）缺页异常可用于虚拟内存管理中。如果在中断服务例程中进行缺页异常的处理时，再次出现缺页异常，这时计算机系统（软件或硬件）会如何处理？请给出你的合理设计和解释。
 
 
 ----
