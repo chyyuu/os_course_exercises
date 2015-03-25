@@ -75,19 +75,10 @@ Virtual Address 1e6f:
 
 回答可参考以如下表示：
 ```
-Virtual Address 7570:
-  --> pde index:0x1d  pde contents:(valid 1, pfn 0x33)
-    --> pte index:0xb  pte contents:(valid 0, pfn 0x7f)
-      --> Fault (page table entry not valid)
-      
-Virtual Address 21e1:
-  --> pde index:0x8  pde contents:(valid 0, pfn 0x7f)
-      --> Fault (page directory entry not valid)
-
-Virtual Address 7268:
-  --> pde index:0x1c  pde contents:(valid 1, pfn 0x5e)
-    --> pte index:0x13  pte contents:(valid 1, pfn 0x65)
-      --> Translates to Physical Address 0xca8 --> Value: 16
+Virtual Address 0330:
+  --> pde index:0x0  pde contents:(valid 1, pfn 0x61)
+    --> pte index:0x19  pte contents:(valid 1, pfn 0x63)
+      --> To Physical Address 0xc70 --> Value: 02
 
 Virtual Address 106f:
   --> pde index:0x3  pde contents:(valid 1, pfn 0x2d)
