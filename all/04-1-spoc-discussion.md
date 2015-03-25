@@ -98,6 +98,8 @@ page 6c: e1(1110 0001) b5(1011 0101) a1(1010 0001) c1(1100 0001)
 
 Virtual Address 0330(0 00000 11001 1_0000):
   --> pde index:0x0(00000)  pde contents:(0xe1, 11100001, valid 1, pfn 0x61(page 0x61))
+  page 6c: e1 b5 a1 c1 b3 e4 a6 bd 7f 7f 7f 7f 7f 7f 7f 7f
+           7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f
   page 61: 7c 7f 7f 4e 4a 7f 3b 5a 2a be 7f 6d 7f 66 7f a7
            69 96 7f c8 3a 7f a5 83 07 e3 7f 37 62 30 7f 3f 
     --> pte index:0x19(11001)  pte contents:(0xe3, 1 110_0011, valid 1, pfn 0x63)
