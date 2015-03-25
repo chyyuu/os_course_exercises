@@ -84,7 +84,7 @@ Virtual Address 1e6f:
 页大小（page size）为32 Bytes(2^5)
 页表项1B
 
-8KB的虚拟地址空间(2^15)
+8KB的虚拟地址空间(2^13)
 一级页表：2^5
 PDBR content: 0xd80（1101_100 0_0000, page 0x6c）
 
