@@ -79,11 +79,6 @@ Virtual Address 0330:
   --> pde index:0x0  pde contents:(valid 1, pfn 0x61)
     --> pte index:0x19  pte contents:(valid 1, pfn 0x63)
       --> To Physical Address 0xc70 --> Value: 02
-
-Virtual Address 106f:
-  --> pde index:0x3  pde contents:(valid 1, pfn 0x2d)
-    --> pte index:0x14  pte contents:(valid 0, pfn 0x06)
-      --> To Disk Sector Address 0x167 --> Value: 2c
 ```
 
 ## 扩展思考题
