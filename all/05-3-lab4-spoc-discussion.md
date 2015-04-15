@@ -1,5 +1,6 @@
-# lab4 spoc discuss
+# lab4 spoc 思考题
 
+- 有"spoc"标记的题是要求拿清华学分的同学要在实体课上完成，并按时提交到学生对应的git repo上。
 
 ## 个人思考题
 
@@ -35,7 +36,7 @@ tf和context中的esp
 
 ## 小组练习与思考题
 
-(1)spoc 理解内核线程的生命周期。
+(1)(spoc) 理解内核线程的生命周期。
 
 > 需写练习报告和简单编码，完成后放到git server 对应的git repo中
 
