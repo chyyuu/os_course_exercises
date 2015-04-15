@@ -7,7 +7,7 @@
 2. 内核线程的管理与简单调度
 3. 内核线程的切换过程
 
-### 练习用的[project](https://github.com/chyyuu/ucore_lab/tree/master/related_info/lab4/lab4-spoc-discuss)
+### 练习用的[lab4 spoc exercise project source code](https://github.com/chyyuu/ucore_lab/tree/master/related_info/lab4/lab4-spoc-discuss)
 
 
 请完成如下练习，完成代码填写，并形成spoc练习报告
