@@ -39,7 +39,7 @@
 
  - 有兴趣的同学，请阅读下面论文，然后说明实时调度面临的主要困难是什么？
    - [Buttazzo, “Rate monotonic vs. EDF: Judgement Day”, EMSOFT 2003.](http://www.arl.wustl.edu/~gorinsky/cited/SPTS_Judgment_Buttazzo_2005.pdf)
-   - []单调速率及其扩展算法的可调度性判定](http://www.jos.org.cn/ch/reader/create_pdf.aspx?file_no=20040602)
+   - [单调速率及其扩展算法的可调度性判定](http://www.jos.org.cn/ch/reader/create_pdf.aspx?file_no=20040602)
  - 多处理机调度中每个处理机一个就绪队列与整个系统一个就绪队列有什么不同？
 
 ### 优先级反置
