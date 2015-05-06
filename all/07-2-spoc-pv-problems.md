@@ -1,39 +1,40 @@
 1. (操作系统之PV金典)生产者一消费者问题 (producer-consumer problem)，也称有限缓冲问题 (Bounded-buffer problem)，是指若干进程通过有限的共享缓冲区交换数据时的缓冲区资源使用问题。
 假设“生产者”进程不断向共享缓冲区写人数据(即生产数据)，而“消费者”进程不断从共享缓冲区读出数据(即消费数据)；共享缓冲区共有n个；任何时刻 只能有一个进程可对共享缓冲区进行操作。所有生产者和消费者之间要协调，以完成对共享缓冲区的操作。  
-> Semaphore 方法
-可把共享缓冲区中的n个缓冲块视为共享资源，生产者写人数据的缓冲块成为消费者可用资源，而消费者读出数据后的缓冲块成为生产者的可用资源。为此，可设 置三个信号量：itemCounter、vacancyCounter和mutex。其中：
- * itemCounter表示有数据的缓冲块数目，初值是0;
- * vacancyCounter表示空的缓冲块数初值是n;
- * mutex用于访问缓冲区时的互斥，初值是1。
-producer 伪码
 	```
+	Semaphore 方法
+	可把共享缓冲区中的n个缓冲块视为共享资源，生产者写人数据的缓冲块成为消费者可用资源，而消费者读出数据后的缓冲块成为生产者的可用资源。为此，可设 置三个信号量：itemCounter、vacancyCounter和mutex。其中：
+	 * itemCounter表示有数据的缓冲块数目，初值是0;
+	 * vacancyCounter表示空的缓冲块数初值是n;
+	 * mutex用于访问缓冲区时的互斥，初值是1。
+	producer 伪码
+
 	procedure producer() {
 	    while (true) {
 		item = produceItem();
 		vacancyCounter->P();
 		    mutex->P();
-		        Add item to buffer;
+			Add item to buffer;
 		    mutex->V();
 		itemCounter->V();
 	    }
 	}
-	```
-consumer 伪码
-	```
+
+	consumer 伪码
+
 	procedure consumer() {
 	    while (true) {
 		itemCounter->P();
 		    mutex->P();
-		        Remove from buffer;
+			Remove from buffer;
 		    mutex->V();
 		vacancyCounter->V();
 	    }
 	}
-	```
-Monitor 方法
-设置一个管程，内有两个condition variable：notFull和notEmpty。其中，notFull表示缓存满，notEmpty表示缓存空
-producer 伪码
-	```
+
+	Monitor 方法
+	设置一个管程，内有两个condition variable：notFull和notEmpty。其中，notFull表示缓存满，notEmpty表示缓存空
+	producer 伪码
+
 	procedure producer() {
 	    lock->Acquire();
 	    while (count == n)
@@ -43,9 +44,9 @@ producer 伪码
 	    notEmpty.Signal();
 	    lock->Release();
 	}
-	```
-consumer 伪码
-	```
+
+	consumer 伪码
+
 	procedure consumer() {
 	    lock->Acquire();
 	    while (count == 0)
@@ -64,6 +65,7 @@ consumer 伪码
 读者写者问题又分为“读者优先”和“写者优先”
  * 读者优先：要求指一个读者试图进行读操作时，如果这时正有其他读者在进行操作，他可以直接开始读操作，直到某个时刻没有任何读者。读者之间不互斥，写者之间互斥，只能一个写，可以多个读；读者写者之间互斥，有写者则不能有读者。所以只需要当前第一个读者和写者竞争，竞争成功则后面的读者因为已经有读者在读，可以直接读。
  * 写者优先：一个读者试图进行读操作时，如果有其他写者在等待进行写操作或者正在进行写操作，他要等待写者完成写操作后才开始读操作。  
+
     - 信号量实现：
       - 读者优先：两个信号量sem_wsem和sem_x。信号量sem_wsem用于实施互斥，只要一个写进程正在访问共享数据区，其他的写进程和读进程都不能访问它。读进程也使用sem_wsem实施互斥，但是只需要第一个读进程在sem_wsem上等待;全局变量readcount用于记录读进程的数目,信号量sem_x用于确保readcount被正确更新。
       - 写者优先：除了上述两个sem_wsem和sem_x两个信号量外，增加三个新的信号量:sem_rsem, sem_y, sem_z。sem_rsem用于当至少有一个写进程准备访问数据区时，禁止其他所有的读进程；sem_y用于控制writecount被正确更新；sem_z用于读者竞争sem_rsem失败后，后续读者在此信号上排队。
@@ -248,51 +250,52 @@ consumer 伪码
 
 9. 此问题是对读者-写者问题的一个扩展，既如果读者写者均是平等的即二者都不优先情况下。
 此问题的一个更高的版本是说，每个资源可以同时读取的人的个数也是有限的（限制数RN）。
->为了达到公平的目的，即在读者进行读取的时候，如果有写者在排队，后面的读者不能够加入到读取的队列中来，应该等待写者执行完写操作之后再进行读取。 针对上面一种情况引入一个排队信号量q,每次有操作必须等待这个信号量释放再进行操作（如果有写操作在排队，q没有释放，下一个读操作没有办法进入并进行读操作）
 	```
+	为了达到公平的目的，即在读者进行读取的时候，如果有写者在排队，后面的读者不能够加入到读取的队列中来，应该等待写者执行完写操作之后再进行读取。 针对上面一种情况引入一个排队信号量q,每次有操作必须等待这个信号量释放再进行操作（如果有写操作在排队，q没有释放，下一个读操作没有办法进入并进行读操作）
+
 	算法流程
 
 	 q,s, mutex <=1, ReadCount <= 0
 
 	Reader:
-	      
-	     while True:
-	     
-	       wait(q)
 
-		    wait(mutex)
+	while True:
 
-		    if ReadCount ==0 wait(s)
-	 
-		    ReadCount++
-		    
-		    signal(mutex)
-		    
-		    signal(q)
-		    
-		    READING..........
-		    
-		    signal(mutex)
-		    
-		    ReadCount--
-		    
-		    if ReadCount==0 signal(s)
-		    
-		    signal(mutex)
-	       
-	       end while
+	wait(q)
+
+	    wait(mutex)
+
+	    if ReadCount ==0 wait(s)
+
+	    ReadCount++
+	    
+	    signal(mutex)
+	    
+	    signal(q)
+	    
+	    READING..........
+	    
+	    signal(mutex)
+	    
+	    ReadCount--
+	    
+	    if ReadCount==0 signal(s)
+	    
+	    signal(mutex)
+
+	end while
 	Writer:
-	      While True:
-	      
-		     wait(q)
-	      
-		     wait(s)
-	      
-		     WRITING.........
-	      
-		     singal(s)
-	      
-		     singal(w)
+	While True:
+
+	     wait(q)
+
+	     wait(s)
+
+	     WRITING.........
+
+	     singal(s)
+
+	     singal(w)
 	问题二使用一个计数器计算当前还有几个剩下的读者名额，当写者掌控时，直接进行0/RN级别的替换。
 	```
 
@@ -309,9 +312,10 @@ consumer 伪码
 (4)当有写者在写时，写者或读者来了，均需等待。  
 (5)当写者写完后，如果等待队列中第一个是写者，则唤醒该写者；如果等待队列中第一个是读者，则唤醒该队列中从读者开始连续的所有读者。  
 (6)当最后一个读者读后，如果有写者在等待，则唤醒第一个等待的写者。
->前面的实现方法中可能出现多个写和读同时等待同一个锁打开，一旦锁打开，会随机挑选一个操作执行，但我们知道在写操作之后加入的读操作是不能在写操作之前执行的，所以上述的方法会 有错误产生。 可以考虑建立一个读写操作队列，给队列设置两个队列锁（read锁锁定read操作，write锁锁定write操作），每次挑选队列中最早加入的操作执行，由于数组删除很复杂，所以采用循环数组。以信号量实现为例，管程的实现方法也是对前一位同学的代码做出相应类似的修改即可。贴出主要代码(读写队列操作部分，monitor不再赘述，跟很多人是一样的)：
-变量定义
 	```
+	前面的实现方法中可能出现多个写和读同时等待同一个锁打开，一旦锁打开，会随机挑选一个操作执行，但我们知道在写操作之后加入的读操作是不能在写操作之前执行的，所以上述的方法会 有错误产生。 可以考虑建立一个读写操作队列，给队列设置两个队列锁（read锁锁定read操作，write锁锁定write操作），每次挑选队列中最早加入的操作执行，由于数组删除很复杂，所以采用循环数组。以信号量实现为例，管程的实现方法也是对前一位同学的代码做出相应类似的修改即可。贴出主要代码(读写队列操作部分，monitor不再赘述，跟很多人是一样的)：
+	变量定义
+
 	#define OP_NUM 200; //操作队列上限 
 	int op_num = 0; //队列当前等待数目
 	int op_list[OP_NUM]; //等待队列，奇数为读，偶数为写
