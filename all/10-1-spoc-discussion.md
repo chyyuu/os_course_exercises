@@ -38,6 +38,6 @@
  - 请描述访问频率置换算法(Frequency-based Replacement)的基本原理
 
 ## 小组思考题
- 1. (spoc)完成磁盘访问与磁盘寻道算法的作业，具体帮助和要求信息请看[disksim-homework](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab8/disksim-homework.md)和[disksim参考代码](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab8/disksim-homework.md)
+ - (spoc)完成磁盘访问与磁盘寻道算法的作业，具体帮助和要求信息请看[disksim指导信息](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab8/disksim-homework.md)和[disksim参考代码](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab8/disksim-homework.py)
 
 
