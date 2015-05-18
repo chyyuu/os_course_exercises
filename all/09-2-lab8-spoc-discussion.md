@@ -23,10 +23,13 @@
 
 ### Simple File System分析
 
- - SFS在硬盘上的四大部分主要是什么，有何作用？
- - 硬盘上的SFS是如何加载到ucore中并初始化的？
- - 硬盘上的inode和内存中的inode的关系和区别是什么?
+ 1. SFS在硬盘上的四大部分主要是什么，有何作用？
+ 
+ > superblock, root-dir inode, freeman, data block
 
+ 2. 硬盘上的SFS是如何加载到ucore中并初始化的？
+ 3. 硬盘上的inode和内存中的inode的关系和区别是什么?
+ 4. 描述file, dir, inode在内存和磁盘上的格式和相关操作。
 
 ### Virtual File System分析
 
