@@ -17,7 +17,9 @@
 
  > 系统调用接口、VFS、SFS和I/O接口
 
- 2. 请简要说明进程proc_struct、文件file、inode之间的关系
+ 2. 请简要说明进程proc_struct、文件file、inode之间的关系。 
+ 
+ 3. ucore中的进程打开文件表和系统打开文件表对应到具体的哪个数据结构上？
 
 ### Simple File System分析
 
