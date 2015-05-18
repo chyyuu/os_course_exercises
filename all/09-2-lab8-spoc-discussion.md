@@ -14,7 +14,9 @@
 ### ucore 文件系统架构
 
  1. 请简要阐述ucore 文件系统架构的四个组成部分
+
  > 系统调用接口、VFS、SFS和I/O接口
+
  2. 请简要说明进程proc_struct、文件file、inode之间的关系
 
 ### Simple File System分析
