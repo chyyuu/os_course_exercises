@@ -136,9 +136,9 @@ SETGATE(intr, 0,1,2,3);
 ```
 sudo apt-get install hexedit
 cd YOUR v9-cpu DIR
-git pull v9-cpu 
+git pull 
 cd YOUR os_course_spoc_exercise DIR
-git pull os_course_spoc_exercise
+git pull 
 ```
 
 分析和实验funcall.c，需要完成的内容包括： 
