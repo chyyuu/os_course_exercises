@@ -9,6 +9,7 @@
  - 安装好ucore实验环境，能够编译运行ucore labs中的源码。
  - 会使用linux中的shell命令:objdump，nm，file, strace，gdb等，了解这些命令的用途。
  - 会编译，运行，使用v9-cpu的dis,xc, xem命令（包括启动参数），阅读v9-cpu中的cpu.md文档，了解汇编指令的类型和含义等，了解v9-cpu的细节。如能debug dis, xc, xem更佳。
+ - 了解基于v9-cpu的执行文件的格式和内容，以及它是如何加载到v9-cpu的内存中的。
  - 在piazza上就学习中不理解问题进行提问。
 
 ## 个人思考题
