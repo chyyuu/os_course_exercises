@@ -10,8 +10,8 @@
  - 思考为什么操作系统需要处理中断，异常，系统调用。这些是必须要有的吗？有哪些好处？有哪些不好的地方？
  - 了解在PC机上有啥中断和异常。搜索“80386　开机　启动”
  - 安装好ucore实验环境，能够编译运行lab8的answer
- - 了解Linux和ucore有哪些系统调用。搜索“linux 系统调用", 搜索lab8中的syscall关键字相关内容。
- - 会使用linux中的命令:objdump，nm，file, strace，了解这些命令的用途。
+ - 了解Linux和ucore有哪些系统调用。搜索“linux 系统调用", 搜索lab8中的syscall关键字相关内容。在linux下执行命令: ```man syscalls```
+ - 会使用linux中的命令:objdump，nm，file, strace，man, 了解这些命令的用途。
  - 了解如何OS是如何实现中断，异常，或系统调用的。会使用v9-cpu的dis,xc, xem命令（包括启动参数），分析v9-cpu中的os0.c, os2.c，了解与异常，中断，系统调用相关的os设计实现。阅读v9-cpu中的cpu.md文档，了解汇编指令的类型和含义等，了解v9-cpu的细节。
  - 在piazza上就lec3学习中不理解问题进行提问。
 
