@@ -83,3 +83,20 @@
  1. 请从代码编写和执行过程来说明。
    1. 说明`int`、`iret`、`call`和`ret`的指令准确功能
  
+
+## v9-cpu相关题目
+---
+
+### 提前准备
+```
+cd YOUR v9-cpu DIR
+git pull 
+cd YOUR os_course_spoc_exercise DIR
+git pull 
+```
+
+### v9-cpu系统调用实现
+  1. v9-cpu中os4.c的系统调用中参数传递代码分析。
+  1. v9-cpu中os4.c的系统调用中返回结果的传递代码分析。
+  1. 理解v9-cpu中os4.c的系统调用编写和含义。
+
