@@ -78,7 +78,7 @@
  
 ## 3.5 ucore系统调用分析
  1. ucore的系统调用中参数传递代码分析。
- 1. ucore的系统调用中返回结果的传递代码分析。
+ 1. 以getpid为例，分析ucore的系统调用中返回结果的传递代码。
  1. 以ucore lab8的answer为例，分析ucore 应用的系统调用编写和含义。
  1. 以ucore lab8的answer为例，尝试修改并运行ucore OS kernel代码，使其具有类似Linux应用工具`strace`的功能，即能够显示出应用程序发出的系统调用，从而可以分析ucore应用的系统调用执行过程。
  
