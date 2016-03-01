@@ -1,5 +1,21 @@
 # lab1 SPOC思考题
 
+##**提前准备**
+（请在上课前完成）
+
+ - 完成lec4的视频学习和提交对应的在线练习
+ - git pull ucore_os_lab, v9_cpu, os_course_spoc_exercises in github repos。这样可以在本机上完成课堂练习。
+ - 了解x86的保护模式，全局描述符，全局描述符表，中断描述符表，如何设置
+ - 了解Linux中的ELF执行文件格式
+ - 了解外设:串口，并口，时钟，键盘,CGA，已经如何对这些外设进行编程
+ - 了解x86架构中的mem地址空间和io地址空间
+ - 了解x86的中断处理过程（包括硬件部分和软件部分）
+ - 了解GCC内联汇编
+ - 了解C语言的可函数变参数编程
+ - 了解qemu的启动参数的含义
+ - 在piazza上就lec3学习中不理解问题进行提问
+
+
 ## 个人思考题
 
 NOTICE
@@ -371,3 +387,21 @@ trapframe结构？
 
 > 
 ---
+
+## v9-cpu相关题目
+---
+
+### 提前准备
+```
+cd YOUR v9-cpu DIR
+git pull 
+cd YOUR os_course_spoc_exercise DIR
+git pull 
+```
+
+### v9-cpu的执行过程记录(challenge)
+  1. 扩展em.c，可以打印v9-cpu执行的每一条指令和寄存器状态
+  1. 扩展em.c，在产生fatal错误后，把这之前执行的n条指令和寄存器状态打印出来
+  1. 扩展c.c和em.c，使得可以指定em.c能够跟踪并打印执行程序中对全局变量的读写或修改的指令，以及指令的执行情况
+  1. 扩展em.c的debugger功能，可以设置断点
+  1. 扩展em.c的debugger功能，可以任意打断当前执行程序的执行，回到debugger
