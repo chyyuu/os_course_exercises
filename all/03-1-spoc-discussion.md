@@ -1,5 +1,10 @@
 # lec5 SPOC思考题
 
+## 提前准备
+
+- 完成lec５的视频学习和提交对应的在线练习
+- git pull ucore_os_lab, v9_cpu, os_course_spoc_exercises 　in github repos。这样可以在本机上完成课堂练习。
+- 理解连续内存动态分配算法的实现（主要自学和网上查找）
 
 NOTICE
 - 有"w3l1"标记的题是助教要提交到学堂在线上的。
@@ -138,3 +143,15 @@ struct list_entry是如何把数据元素组织成链表的？
 
 
 
+## v9-cpu相关
+
+[challenge]在v9-cpu上完成基于method-0/1/2/buddy system（选一个方法）with first/best/worst-fit(选一个fit)用户态动态内存分配函数malloc/free，要求在内核态实现sbrk系统调用以支持用户态动态内存分配方法。基于os4.c实现，可参考v9-cpu git repo的testing分支中的os.c
+
+- [x]  
+
+> 
+
+[challenge]在v9-cpu上完成基GC算法，要求在内核态实现sbrk系统调用以支持用户态动态内存分配方法。基于os4.c实现，可参考v9-cpu git repo的testing分支中的os.c
+- [x]  
+
+>
