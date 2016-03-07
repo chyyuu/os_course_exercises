@@ -31,7 +31,7 @@ NOTICE
 
 ## 小组思考题
 
-请参考ucore lab2代码，采用`struct pmm_manager` 根据你的`学号 mod 4`的结果值，选择四种（0:最优匹配，1:最差匹配，2:最先匹配，3:buddy systemm）分配算法中的一种或多种，在应用程序层面(可以 用python,ruby,C++，C，LISP等高语言)来实现，给出你的设思路，并给出测试用例。 (spoc)
+请参考xv6，ucore lab2代码，选择四种（0:最优匹配，1:最差匹配，2:最先匹配，3:buddy systemm）分配算法中的一种或多种，在Linux应用程序/库层面，用C来实现malloc/free，给出你的设思路，并给出可以在Linux上运行的malloc/free实现和测试用例。 (spoc)
 
 ```
 如何表示空闲块？ 如何表示空闲块列表？ 
