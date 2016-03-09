@@ -103,7 +103,7 @@ PT6..0:页表的物理基址>>5
    Virtual Address 748b
 ```
 
-比如答案可以如下表示：
+比如答案可以如下表示： (注意：下面的结果是错的，你需要关注的是如何表示)
 ```
 Virtual Address 7570:
   --> pde index:0x1d  pde contents:(valid 1, pfn 0x33)
