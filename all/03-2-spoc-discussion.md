@@ -91,16 +91,16 @@ PT6..0:页表的物理基址>>5
 ```
 在[物理内存模拟数据文件](./03-2-spoc-testdata.md)中，给出了4KB物理内存空间的值，请回答下列虚地址是否有合法对应的物理内存，请给出对应的pde index, pde contents, pte index, pte contents。
 ```
-Virtual Address 6c74
-Virtual Address 6b22
-Virtual Address 03df
-Virtual Address 69dc
-Virtual Address 317a
-Virtual Address 4546
-Virtual Address 2c03
-Virtual Address 7fd7
-Virtual Address 390e
-Virtual Address 748b
+1) Virtual Address 6c74
+   Virtual Address 6b22
+2) Virtual Address 03df
+   Virtual Address 69dc
+3) Virtual Address 317a
+   Virtual Address 4546
+4) Virtual Address 2c03
+   Virtual Address 7fd7
+5) Virtual Address 390e
+   Virtual Address 748b
 ```
 
 比如答案可以如下表示：
