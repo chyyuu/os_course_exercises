@@ -135,3 +135,9 @@ Virtual Address 7268:
 阅读64bit IBM Powerpc CPU架构是如何实现[反置页表](http://en.wikipedia.org/wiki/Page_table#Inverted_page_table)，给出分析报告。
 
 --- 
+
+
+## interactive　understand VM
+
+- [Virtual Memory with 256 Bytes of RAM](http://blog.robertelder.org/virtual-memory-with-256-bytes-of-ram/)
+
