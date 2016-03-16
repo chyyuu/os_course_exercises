@@ -123,11 +123,11 @@ PT6..0:页表的物理基址>>5
 
 请回答下列虚地址是否有合法对应的物理内存，请给出对应的pde index, pde contents, pte index, pte contents，the value of addr in phy page OR disk sector。
 ```
-Virtual Address 6653:
-Virtual Address 1c13:
-Virtual Address 6890:
-Virtual Address 0af6:
-Virtual Address 1e6f:
+1) Virtual Address 6653:
+2) Virtual Address 1c13:
+3) Virtual Address 6890:
+4) Virtual Address 0af6:
+5) Virtual Address 1e6f:
 ```
 
 请写出一个translation程序（可基于python、ruby、C、C++、LISP、JavaScript等），输入是一个虚拟地址和一个物理地址，依据[物理内存模拟数据文件](./04-1-spoc-memdiskdata.md)自动计算出对应的pde index, pde contents, pte index, pte contents，the value of addr in phy page OR disk sector。
