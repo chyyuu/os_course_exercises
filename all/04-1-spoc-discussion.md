@@ -21,7 +21,13 @@ re_os_lab, v9_cpu, os_course_spoc_exercises 　in github repos。这样可以在
  1. 寄存器、高速缓存、内存、外存的访问特征？
   * 位置、是否有软件参与访问、访问频率
 
+ 1. 在你写程序时遇到过内存不够的情况吗？尝试过什么解决方法？
+
 ### 8.2 覆盖和交换
+
+ 1. 什么是覆盖技术？使用覆盖技术的程序开发者的主要工作是什么？
+
+ 1. 什么是交换技术？覆盖与交换有什么不同？
 
  1. 如何分析内核模块间的依赖关系？
 
@@ -29,17 +35,25 @@ re_os_lab, v9_cpu, os_course_spoc_exercises 　in github repos。这样可以在
 
 ### 8.3 局部性原理
 
+ 1. 什么是时间局部性、空间局部性和分支局部性？
+
+ 1. 如何提高程序执行时的局部性特征？
+
  1. 排序算法的局部性特征？
   * 参考：[九大排序算法再总结](http://blog.csdn.net/xiazdong/article/details/8462393)
 
 ### 8.4 虚拟存储概念
 
- 1. 虚拟存储需要解决哪些问题？
+ 1. 什么是虚拟存储？它与覆盖和交换的区别是什么？它有什么好处和挑战？
 
 
 ### 8.5 虚拟页式存储
 
- 1. 为了支持虚拟页式存储，页表需要做哪些改动？
+ 1. 什么是虚拟页式存储？缺页中断处理的功能是什么？
+
+ 1. 为了支持虚拟页式存储的实现，页表项有什么修改？
+
+ 2. 页式存储和虚拟页式存储的区别是什么？
 
 ### 8.6 缺页异常
 
@@ -107,14 +121,16 @@ PT6..0:页表的物理基址>>5
 
 在[物理内存模拟数据文件](./04-1-spoc-memdiskdata.md)中，给出了4KB物理内存空间和4KBdisk空间的值，PDBR的值。
 
-请回答下列虚地址是否有合法对应的物理内存，请给出对应的pde index, pde contents, pte index, pte contents，the value of addr in phy page OR disk sector。
+请手工计算后回答下列虚地址是否有合法对应的物理内存，请给出对应的pde index, pde contents, pte index, pte contents，the value of addr in phy page OR disk sector。
 ```
-Virtual Address 6653:
-Virtual Address 1c13:
-Virtual Address 6890:
-Virtual Address 0af6:
-Virtual Address 1e6f:
+1) Virtual Address 6653:
+2) Virtual Address 1c13:
+3) Virtual Address 6890:
+4) Virtual Address 0af6:
+5) Virtual Address 1e6f:
 ```
+
+请写出一个translation程序（可基于python、ruby、C、C++、LISP、JavaScript等），输入是一个虚拟地址，依据[物理内存模拟数据文件](./04-1-spoc-memdiskdata.md)自动计算出对应的pde index, pde contents, pte index, pte contents，the value of addr in phy page OR disk sector。
 
 **提示:**
 ```
