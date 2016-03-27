@@ -20,7 +20,8 @@ NOTICE
 1. 进程控制块的功能是什么？
 2. 进程控制块中包括什么信息？
 3. ucore的进展控制块数据结构定义中哪些字段？有什么作用？
-
+  > [参见](http://crl.ptopenlab.com:8811/courses/Tsinghua/CS101/2015_T1/courseware/65a2e6de0e7f4ec8a261df82683a2fc3/400f7c812c254b799e66194d24b297ae/)： lab4/kern/process/proc.h
+  
 ### 11.3 进程状态
 
 - 进程生命周期中的相关事件有些什么？它们对应的进程状态变化是什么？
