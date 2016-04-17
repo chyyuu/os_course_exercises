@@ -204,9 +204,9 @@ Final statistics:
 
 ```
 
-(２)扩展练习1:理解并实现MLFQ调度算法　可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
+### (２)扩展练习1:理解并实现MLFQ调度算法　可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
 
-(3)扩展练习2:理解并实现stride调度算法　可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
+### (3)扩展练习2:理解并实现stride调度算法　可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
 
-(4)扩展练习３：理解并实现EDF, RM实时调度算法和优先级反置方法　可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
+### (4)扩展练习３：理解并实现EDF, RM实时调度算法和优先级反置方法　可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
 
