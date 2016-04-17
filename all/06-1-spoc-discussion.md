@@ -75,7 +75,7 @@
 
 ## 小组练习与思考题
 
-(1)(spoc) 理解并完善调度算法
+### (1)(spoc) 理解并完善调度算法
 
 实现３种调度算法（SJF，FIFO，RR），可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试。请参考[scheduler-homework.py](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab6/scheduler-homework.py)代码或独自实现。
 最后统计采用不同调度算法的每个任务的相关时间和总体的平均时间：
@@ -84,7 +84,7 @@
 　- response time 响应时间
 　- wait time　等待时间
 
-### 对模拟环境的抽象
+#### 对模拟环境的抽象
 - 任务/进程，及其执行时间
   Job 0 (length = 1)
   Job 1 (length = 4)
@@ -93,7 +93,7 @@
  - 何时切换？
  - 如何统计？
  
-### 执行结果
+#### 执行结果
 
 采用FIFO调度算法
 
