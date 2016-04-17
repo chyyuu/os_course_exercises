@@ -75,9 +75,11 @@
 
 ## 小组练习与思考题
 
-### (1)(spoc) 理解并完善调度算法
+### (1)(spoc) 理解并实现FIFO调度算法
 
-实现３种调度算法（SJF，FIFO，RR），可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试。请参考[scheduler-homework.py](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab6/scheduler-homework.py)代码或独自实现。
+可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
+
+请参考[scheduler-homework.py](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab6/scheduler-homework.py)代码或独自实现。
 最后统计采用不同调度算法的每个任务的相关时间和总体的平均时间：
 
 　- turnaround time　周转时间
@@ -125,6 +127,11 @@ Final statistics:
   Average -- Response: 8.67  Turnaround 16.00  Wait 8.67
 
 ```
+### (2)(spoc) 理解并实现SJF调度算法
+
+可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
+
+#### 执行结果
 
 采用SJF调度算法
 ```
@@ -154,6 +161,12 @@ Final statistics:
 
   Average -- Response: 6.00  Turnaround 13.33  Wait 6.00
 ```
+### (3)(spoc) 理解并实现RR调度算法
+
+可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
+
+#### 执行结果
+
 
 采用RR调度算法
 ```
@@ -204,9 +217,22 @@ Final statistics:
 
 ```
 
-### (２)扩展练习1:理解并实现MLFQ调度算法　可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
+### (4)理解并实现MLFQ调度算法
 
-### (3)扩展练习2:理解并实现stride调度算法　可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
+可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
 
-### (4)扩展练习３：理解并实现EDF, RM实时调度算法和优先级反置方法　可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
+### (5)理解并实现stride调度算法
 
+可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
+
+### (6)理解并实现EDF实时调度算法
+
+可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
+
+### (7)理解并实现RM实时调度算法
+
+可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
+
+### (8)理解并实现优先级反置方法
+
+可基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现，并给出测试，在试验报告写出设计思路和测试结果分析。
