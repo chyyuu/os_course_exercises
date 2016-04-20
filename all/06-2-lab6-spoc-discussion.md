@@ -27,6 +27,9 @@
 2. stride算法的特征是什么？
 3. stride调度算法是如何避免stride溢出问题的？
 4. 无符号数的有符号比较会产生什么效果？
+
+ > [无符号数的有符号比较会产生什么效果？](https://piazza.com/class/i5j09fnsl7k5x0?cid=357)
+
 5. 什么是斜堆(skew heap)?
 
 ## 小组练习与思考题
