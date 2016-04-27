@@ -50,7 +50,7 @@ s.count--;              //有可用资源，占用该资源；
  
 ## 小组思考题
 
-1. （spoc） 每人用python threading机制用信号量和条件变量两种手段分别实现[40个同步互斥问题](07-2-spoc-pv-problems.md)中的一题。向勇老师的班级从前往后，陈渝老师的班级从后往前。请先理解[python threading 机制的介绍和实例](https://github.com/chyyuu/ucore_lab/tree/master/related_info/lab7/semaphore_condition)
+1. （spoc） 每人用python threading机制用信号量和条件变量两种手段分别实现[40个同步互斥问题](07-2-spoc-pv-problems.md)中的一题。请先理解[python threading 机制的介绍和实例](https://github.com/chyyuu/ucore_lab/tree/master/related_info/lab7/semaphore_condition)
 
  > 参考：[2015年操作系统课的信号量问题回答](https://piazza.com/class/i5j09fnsl7k5x0?cid=391)
  
