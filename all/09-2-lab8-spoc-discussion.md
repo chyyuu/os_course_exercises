@@ -25,7 +25,7 @@
 
  1. SFS在硬盘上的四大部分主要是什么，有何作用？
  
- > superblock, root-dir inode, freeman, data block
+ > superblock, root-dir inode, freemap, data block
 
  2. 硬盘上的SFS是如何加载到ucore中并初始化的？
  3. 硬盘上的inode和内存中的inode的关系和区别是什么?
