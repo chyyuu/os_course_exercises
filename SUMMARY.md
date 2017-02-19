@@ -2,6 +2,7 @@
 
 * [示例](README.md)
 * [Intro](all/1-intro.md)
+    * [教学环境准备](all/00-preparation.md)
     * [问卷](all/01-1-questionnaire.md)
     * [lec0 SPOC讨论](all/01-2-spoc-discussion.md)
     * [lab0 在线练习](all/01-3-lab0-quiz.md)
