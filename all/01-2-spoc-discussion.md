@@ -7,7 +7,7 @@
  - 完成lec1的视频学习和提交对应的在线练习
  - git pull ucore_os_lab, v9_cpu, os_course_spoc_exercises  　in github repos。这样可以在本机上完成课堂练习。
  - 知道OS课程的入口网址，会使用在线视频平台，在线练习/实验平台，在线提问平台(piazza)
-   - http://166.111.68.197:11123/oscourse/OS2016spring
+   - http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring
  - 了解学习方法
 
 ```
@@ -129,7 +129,7 @@
 
 >  
 
-请评价用LISP,OCcaml, GO, D，RUST等实现操作系统的利弊？
+请评价用LISP,Haskell, GO, D，RUST等实现操作系统的利弊？
 - [x]  
 
 >  
