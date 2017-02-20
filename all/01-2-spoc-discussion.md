@@ -37,7 +37,7 @@
 ## 个人思考题
 
 ---
-* 当前常见的操作系统包括{%s%} Windows, GNU/Linux, MacOS, iOS, Android, DoS, VxWorks, uCOS,FreeRTOS,eCOS{%ends%}。
+* 当前常见的操作系统包括{%s%} Windows, GNU/Linux, MacOS, iOS, Android, DoS, VxWorks, uCOS,FreeRTOS,eCOS,QNX{%ends%}。
 * 当前常见的操作系统主要用{%s%} C,C++,ASM{%ends%}编程语言编写。
 * 操作系统是{%s%} 管理系统资源，控制程序执行，改善人机界面，提供各种服务，合理组织计算机工作流程和胃用户使用计算机提供良好的运行环境{%ends%}的一种系统软件。
 * "Operating system"这个单词起源于{%s%} Operator {%ends%}。
@@ -47,6 +47,8 @@
 * 应用程序通过{%s%} 系统调用 {%ends%}接口获得操作系统的服务。
 * 推动操作系统发展的因素有{%s%} ARM {%ends%}。
 * 现代操作系统的特征包括{%s%}并行性，虚拟性，异步性（不确定性）、共享性和持久性 {%ends%}。
+* 操作系统内核的架构设计包括%s%}宏内核（单体内核,monolithic kerne），微内核(microkernel)，外核（exokernel）{%ends%}。
+
 
 ---
 
