@@ -47,7 +47,7 @@
 * 应用程序通过{%s%} 系统调用 {%ends%}接口获得操作系统的服务。
 * 推动操作系统发展的因素有{%s%} ARM {%ends%}。
 * 现代操作系统的特征包括{%s%}并行性，虚拟性，异步性（不确定性）、共享性和持久性 {%ends%}。
-* 操作系统内核的架构设计包括{%s%}宏内核（单体内核,monolithic kerne），微内核(microkernel)，外核（exokernel）{%ends%}。
+* 操作系统内核的架构设计包括{%s%}宏内核（单体内核,monolithic kernel），微内核(microkernel)，外核（exokernel）{%ends%}。
 
 
 ---
