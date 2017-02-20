@@ -7,7 +7,7 @@
 （请在上课前完成）
 
 * 完成lec1的视频学习和提交对应的在线练习
-* git pull ucore\_os\_lab, v9\_cpu, os\_course\_spoc\_exercises  　in github repos。这样可以在本机上完成课堂练习。
+* git pull ucore\_os\_lab, v9\_cpu, os\_course\_exercises  　in github repos。这样可以在本机上完成课堂练习。
 * 知道OS课程的入口网址，会使用在线视频平台，在线练习/实验平台，在线提问平台\(piazza\)
   * [http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring](http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring)
 * 了解学习方法
