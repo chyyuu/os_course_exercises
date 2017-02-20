@@ -7,29 +7,103 @@
 MOOC OS习题集采用gitbook的方式展现，可进行在线交互式答题。
 
 下面是gitbook提供的试题编写的例子：
+## mcqx test1
 
-This is a quiz:
+{%mcq ans="o1"%}
+{%title%} This is a question?
+{%o1%} First option
+{%o2%} Second option
+{%o3%} Third option
+{%o4%} Fourth option
+{%endmcq%}
 
----
+## mcqx test2
 
-Here's a quiz about Gitbook
+{%mcq ans="o1", count=2%}
+{%title%} This is a question?
+{%o1%} First option
+{%o2%} Second option
+{%o3%} Third option
+{%o4%} Fourth option
+{%hint%} This is a hint.
+{%endmcq%}
 
-|                  | Good | Bad |
-| ---------------- | ---- | --- |
-| What is Gitbook? | (x)  | ( ) |
+## mcqx test3
 
-> Gitbook is good
+{%mcq ans="o1", count=2%}
+{%title%} This is a question?
+{%o1%} First option
+{%o2%} Second option
+{%o3%} Third option
+{%o4%} Fourth option
+{%o5%} Fourth option
+{%o6%} Fourth option
+{%o7%} Fourth option
+{%o8%} Fourth option
+{%endmcq%}
 
-What does Gitbook support?
-- [x] Table-based questions with radio buttons
-- [x] Table-based questions with checkboxes
-- [ ] Telepathy
-- [x] List-based questions with checkboxes
-- [x] List-based questions with radio buttons
-- [ ] Moon-on-a-stick
+## mcqx test4
 
-> Gitbook supports table and list based quiz questions using either radio buttons or checkboxes.
->
-> Gitbook is not telepathic and does not give you the moon on a stick.
+{%mcq ans="o1", random=true%}
+{%title%} This is a question?
+{%o1%} First option
+{%o2%} Second option
+{%o3%} Third option
+{%o4%} Fourth option
+{%endmcq%}
 
----
+## mcqx test5
+
+
+## spoiler test6
+
+This is a spoiler: {%s%}Hello World.{%ends%}
+
+## fbq test7
+
+{%fbq%}Testing. Please type $$hello## (hello) and $$world## (world).{%endfbq%}
+
+## quiz test8
+
+<quiz name="Gitbook Quiz">
+    <question multiple>
+        <p>What is gitbook used for?</p>
+        <answer correct>To read books</answer>
+        <answer>To book hotel named git</answer>
+        <answer correct>To write and publish beautiful books</answer>
+        <explanation>GitBook.com lets you write, publish and manage your books online as a service.</explanation>
+    </question>
+    <question>
+        <p>Is it quiz?</p>
+        <answer correct>Yes</answer>
+        <answer>No</answer>
+    </question>
+    <question>
+        <p>This is multiple dropdown quiz, in each dropdown select a correct number corresponding to the dropdown's order</p>
+        <answer>
+            <option correct>First</option>
+            <option>Second</option>
+            <option>Third</option>
+            <option>Fourth</option>
+        </answer>
+        <answer>
+            <option>First</option>
+            <option correct>Second</option>
+            <option>Third</option>
+            <option>Fourth</option>
+        </answer>
+        <answer>
+            <option>First</option>
+            <option>Second</option>
+            <option correct>Third</option>
+            <option>Fourth</option>
+        </answer>
+        <answer>
+            <option>First</option>
+            <option>Second</option>
+            <option>Third</option>
+            <option correct>Fourth</option>
+        </answer>
+    </question>
+</quiz>
+
