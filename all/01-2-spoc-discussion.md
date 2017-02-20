@@ -1,14 +1,16 @@
 # 操作系统概述
+
 ---
 
-##**提前准备**
+## **提前准备**
+
 （请在上课前完成）
 
- - 完成lec1的视频学习和提交对应的在线练习
- - git pull ucore_os_lab, v9_cpu, os_course_spoc_exercises  　in github repos。这样可以在本机上完成课堂练习。
- - 知道OS课程的入口网址，会使用在线视频平台，在线练习/实验平台，在线提问平台(piazza)
-   - http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring
- - 了解学习方法
+* 完成lec1的视频学习和提交对应的在线练习
+* git pull ucore\_os\_lab, v9\_cpu, os\_course\_spoc\_exercises  　in github repos。这样可以在本机上完成课堂练习。
+* 知道OS课程的入口网址，会使用在线视频平台，在线练习/实验平台，在线提问平台\(piazza\)
+  * [http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring](http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring)
+* 了解学习方法
 
 ```
   for (i=1; i<=13; i++) {
@@ -21,76 +23,80 @@
     7. if (碰到问题)　到piazza的论坛上提问;
    }
 ```
- - 会使用linux shell命令，如ls, rm, mkdir, cat, less, more, gcc等，也会使用linux系统的基本操作。
- - 了解v9-cpu,会使用v9-cpu的dis,xc, xem命令（包括启动参数）,阅读v9-cpu中的cpu.md文档，了解汇编指令的类型和含义等，了解v9-cpu的细节。
- - https://github.com/chyyuu/v9-cpu/blob/master/doc/cpu.md
 
- - 在piazza上就学习中不理解问题进行提问。
+* 会使用linux shell命令，如ls, rm, mkdir, cat, less, more, gcc等，也会使用linux系统的基本操作。
+* 了解v9-computer会使用v9-computer的dis,xc, xem命令（包括启动参数）,阅读v9-computer中的v9_computer.md文档，了解汇编指令的类型和含义等，了解v9-computer的细节。
+* [v9 computer](https://github.com/chyyuu/os_tutorial_lab/blob/master/v9_computer/docs/v9_computer.md)
+
+* 在piazza上就学习中不理解问题进行提问。
 
 # 操作系统概述思考题
+
 ---
+
 ## 个人思考题
+
 ---
 
 分析你所认识的操作系统（Windows、Linux、FreeBSD、Android、iOS）所具有的独特和共性的功能？
-- [x]  
 
->
+* [x] 
+&gt;
 
 如何评价Windows的封闭发展模式和Linux的开放发展模式？
-- [x]  
 
->
+* [x] 
+&gt;
 
 请总结你认为操作系统应该具有的特征有什么？并对其特征进行简要阐述。
-- [x]  
 
->   
+* [x] 
+>
 
 请给出你觉得的更准确的操作系统的定义？
-- [x]  
 
->   
+* [x] 
+>
 
 你希望从操作系统课学到什么知识？
-- [x]  
 
->   
+* [x] 
+>
 
 什么是操作系统？
-- [x]  
 
->   
+* [x] 
+>
 
 操作系统内核有什么特征？
-- [x]  
 
->   
+* [x] 
+>
 
 操作系统面临什么挑战？
-- [x]  
 
->   
+* [x] 
+>
 
 同学们用过什么操作系统？如何评价这些系统？
-- [x]  
 
->   
+* [x] 
+>
 
 你所知道的操作系统技术有什么？哪些是操作系统特有的？
-- [x]  
 
->   
+* [x] 
+>
 
 什么是操作系统内核？什么是微内核？什么是外核（Exokernel）？
-- [x]  
 
->   
+* [x] 
+>
 
 你理解的虚拟化是什么？
-- [x]  
 
->   
+* [x] 
+>
 
 ---
 
@@ -99,29 +105,29 @@
 ---
 
 目前的台式PC机标准配置和价格？
-- [x]  
 
-> 
+* [x] 
+>
 
 你理解的命令行接口和GUI接口具有哪些共性和不同的特征？
-- [x]  
 
-> 
+* [x] 
+>
 
 为什么现在的操作系统基本上用C语言来实现？
-- [x]  
 
->  
+* [x] 
+>
 
 为什么没有人用python，java来实现操作系统？
-- [x]  
 
->  
+* [x] 
+>
 
 请评价用C++来实现操作系统的利弊？
-- [x]  
 
->  
+* [x] 
+>
 
 ---
 
@@ -130,56 +136,60 @@
 ---
 
 请评价微内核、单体内核、外核（exo-kernel）架构的操作系统的利弊？
-- [x]  
 
->  
+* [x] 
+>
 
 请评价用LISP,Haskell, GO, D，RUST等实现操作系统的利弊？
-- [x]  
 
->  
+* [x] 
+>
 
 进程切换的可能实现思路？
-- [x]  
 
->  
+* [x] 
+>
 
 计算机与终端间通过串口通信的可能实现思路？
-- [x]  
 
->  
+* [x] 
+>
 
 为什么微软的Windows没有在手机终端领域取得领先地位？
-- [x]  
 
->  
+* [x] 
+>
 
 你认为未来（10年内）的操作系统应该具有什么样的特征和功能？
-- [x]  
 
->  
+* [x] 
+>
 
 ---
 
 ## v9-cpu相关题目
+
 ---
 
 请分析em.c，并补充cpu.md中描述不够或错误的地方。包括：在v9-cpu中如何实现时钟中断的；v9-cpu指令，关键变量描述有误或不全的情况；在v9-cpu中的跳转相关操作是如何实现的；在v9-cpu中如何设计相应指令，可有效实现函数调用与返回；emhello/os0/os1等程序被加载到内存的哪个位置,其堆栈是如何设置的；在v9-cpu中如何完成一次内存地址的读写的；在v9-cpu中如何实现分页机制；
-- [x]  
 
->  
+* [x] 
+>
 
 请编写一个小程序，在v9-cpu下，能够接收你输入的字符并输出你输入的字符
-- [x]  
 
->  
+* [x] 
+>
 
 请编写一个小程序，在v9-cpu下，能够产生各种异常/中断
-- [x]  
 
->　  
+* [x] 
+>
 
 请编写一个小程序，在v9-cpu下，能够统计并显示内存大小
-- [x]  
 
->　  
+* [x] 
+>
+
+
+
