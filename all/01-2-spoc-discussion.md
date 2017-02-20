@@ -38,7 +38,7 @@
 
 ---
 * 当前常见的操作系统包括{%s%} Windows, GNU/Linux, MacOS, iOS, Android, DoS, VxWorks, uCOS,FreeRTOS,eCOS{%ends%}。
-* 当前常见的操作系统主要用{%s%} C,C++,ASM{%ends%}。
+* 当前常见的操作系统主要用{%s%} C,C++,ASM{%ends%}编程语言编写。
 * 操作系统是{%s%} 管理系统资源，控制程序执行，改善人机界面，提供各种服务，合理组织计算机工作流程和胃用户使用计算机提供良好的运行环境{%ends%}的一种系统软件。
 * "Operating system"这个单词起源于{%s%} Operator {%ends%}。
 * 在计算机系统中，控制和管理各种资源、有效地组织多道程序运行的系统软件称作{%s%} 操作系统 {%ends%}。
