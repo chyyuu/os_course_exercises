@@ -218,23 +218,55 @@ C语言足够高级，成熟，可以方便编写OS和跨平台；且足够底�
 
 ---
 
-## v9-cpu相关题目
+## v9-computer相关题目
 
 ---
 
-- 请分析em.c，并补充cpu.md中描述不够或错误的地方。包括：在v9-cpu中如何实现- 时钟中断的；v9-cpu指令，关键变量描述有误或不全的情况；在v9-cpu中的跳转相关操作是如何实现的；在v9-cpu中如何设计相应指令，可有效实现函数调用与返回；emhello/os0/os1等程序被加载到内存的哪个位置,其堆栈是如何设置的；在v9-cpu中如何完成一次内存地址的读写的；在v9-cpu中如何实现分页机制；
+- 请分析模拟v9 computer的em.c。理解：在v9 computer中如何实现 时钟中断的；v9 computer的CPU指令，关键变量描述有误或不全的情况；在v9 computer中的跳转相关操作是如何实现的；在vv9 computer中如何设计相应指令，可有效实现函数调用与返回；OS程序被加载到内存的哪个位置,其堆栈是如何设置的；在v9 computer中如何完成一次内存地址的读写的；在v9 computer中如何实现分页机制；
+
+{%s%} 
+
+https://github.com/chyyuu/os_tutorial_lab/blob/master/v9_computer/tools/em.c       
 
 
+
+https://github.com/chyyuu/os_tutorial_lab/blob/master/v9_computer/docs/v9_computer.md
+
+{%ends%}
+
+- 请编写一个小程序，在v9-cpu下，能够输出字符
+
+{%s%} 
+
+https://github.com/chyyuu/os_tutorial_lab/tree/master/v9_computer/os_helloworld
+
+{%ends%}
 
 - 请编写一个小程序，在v9-cpu下，能够接收你输入的字符并输出你输入的字符
 
+{%s%} 
 
+{%ends%}
 
 - 请编写一个小程序，在v9-cpu下，能够产生各种异常/中断
 
+{%s%} 
 
+https://github.com/chyyuu/os_tutorial_lab/tree/master/v9_computer/os_bad_phys_addr  
+
+https://github.com/chyyuu/os_tutorial_lab/tree/master/v9_computer/os_divid_by_zero   
+
+https://github.com/chyyuu/os_tutorial_lab/tree/master/v9_computer/os_invalid_intruction
+
+https://github.com/chyyuu/os_tutorial_lab/tree/master/v9_computer/os_page_fault  
+
+https://github.com/chyyuu/os_tutorial_lab/tree/master/v9_computer/os_timer_interrupt  
+
+{%ends%}
 
 - 请编写一个小程序，在v9-cpu下，能够统计并显示内存大小
 
+{%s%} 
 
+{%ends%}
 
