@@ -187,11 +187,10 @@ CR0控制寄存器的字段含义和功能有哪些？
 
 > 
 
-可执行文件格式elf的各个段的数据结构？
+ 1. 分析可执行文件格式elf的格式。
+  1. ELF header的格式；{%s%} ([文档：Header](http://wiki.osdev.org/ELF)、[代码](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/libs/elf.h#L9)) {%ends%}
+  1. proghdr的格式分析；{%s%} （[文档：Program header](http://wiki.osdev.org/ELF)、[代码](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/libs/elf.h#L28)） {%ends%}
 
-- [x]  
-
-> 
 
 如果ucore内核的elf是否要求连续存放？为什么？
 
