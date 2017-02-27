@@ -173,54 +173,150 @@ strace可以跟踪进程执行时的系统调用和所接收的信号，加上-c
 
  
 ## 3.5 ucore系统调用分析
- 1. 基于实验八的代码分析ucore的系统调用实现，说明25个指定系统调用的参数和返回值的传递方式和存放位置信息，以及内核中的系统调用功能实现函数。
+-  基于实验八的代码分析ucore的系统调用实现，说明25个指定系统调用的参数和返回值的传递方式和存放位置信息，以及内核中的系统调用功能实现函数。
    1. [实验八系统调用编号头文件](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab8_result/libs/unistd.h)
 
-{%s%}
+ANSWER:
 
 在 ucore 中，执行系统调用前，需要将系统调用的参数出存在寄存器中。eax 表示系统调用类型，其余参数依次存在 edx, ecx, ebx, edi, esi 中。
 
-    	...
-        int num = tf->tf_regs.reg_eax;
-        ... 
-        arg[0] = tf->tf_regs.reg_edx; 
-        arg[1] = tf->tf_regs.reg_ecx;
-        arg[2] = tf->tf_regs.reg_ebx;
-        arg[3] = tf->tf_regs.reg_edi;
-        arg[4] = tf->tf_regs.reg_esi;
-        ...
-
-{%ends%}
+```c
+	...
+    int num = tf->tf_regs.reg_eax;
+    ... 
+    arg[0] = tf->tf_regs.reg_edx; 
+    arg[1] = tf->tf_regs.reg_ecx;
+    arg[2] = tf->tf_regs.reg_ebx;
+    arg[3] = tf->tf_regs.reg_edi;
+    arg[4] = tf->tf_regs.reg_esi;
+    ...
+```
 
 
  1. 以getpid为例，分析ucore的系统调用中返回结果的传递代码。
- {%s%}
 
-syscalls 是保存了各种系统调用的函数指针，进入 sys_getpid，直接返回当前进程的 pid。
+`syscalls` 是保存了各种系统调用的函数指针，进入 `sys_getpid`，直接返回当前进程的 pid。
 
-    	sys_getpid(uint32_t arg[]) {
-    	    return current->pid;
-    	}
+```c
+	sys_getpid(uint32_t arg[]) {
+	    return current->pid;
+	}
+```
 
 而各类系统调用返回结果统一存在eax中。
 
-    	tf->tf_regs.reg_eax = syscalls[num](arg);
- 
- {%ends%}
+```c
+	tf->tf_regs.reg_eax = syscalls[num](arg);
+```
 
 
- 1. 以ucore lab8的answer为例，分析ucore 应用的系统调用编写和含义。
- 
- {%s%}
- syscall(int num, ...)这段代码是用户态的syscall函数，其中num参数为系统调用号，该函数将参数准备好后，通过 SYSCALL 汇编指令进行系统调用，进入内核态，返回值放在 eax 寄存器，传入参数通过 eax ~ esi 依次传递进去。在内核态中，首先进入 trap() 函数，然后调用 trap_dispatch() 进入中断分发，当系统得知该中断为系统调用后，OS调用如下的 syscall 函数.syscall 函数.函数得到系统调用号 num = tf->tf_regs.reg_eax;，通过计算快速跳转到相应的 sys_ 开头的函数，最终在内核态中，完成系统调用所需要的功能。
 
- {%ends%}
+- 以ucore lab8的answer为例，分析ucore 应用的系统调用编写和含义。
+
+ANSWER:
+
  
- 1. 以ucore lab8的answer为例，尝试修改并运行ucore OS kernel代码，使其具有类似Linux应用工具`strace`的功能，即能够显示出应用程序发出的系统调用，从而可以分析ucore应用的系统调用执行过程。
+```c
+syscall(int num, ...) {
+    va_list ap;
+    va_start(ap, num);
+    uint32_t a[MAX_ARGS];
+    int i, ret;
+    for (i = 0; i < MAX_ARGS; i ++) {
+        a[i] = va_arg(ap, uint32_t);
+    }
+    va_end(ap);
+
+    asm volatile (
+        "int %1;"
+        : "=a" (ret)
+        : "i" (T_SYSCALL),
+          "a" (num),
+          "d" (a[0]),
+          "c" (a[1]),
+          "b" (a[2]),
+          "D" (a[3]),
+          "S" (a[4])
+        : "cc", "memory");
+    return ret;
+}
+```
+
+这段代码是用户态的syscall函数，其中num参数为系统调用号，该函数将参数准备好后，通过 `SYSCALL` 汇编指令进行系统调用，进入内核态，返回值放在 `eax` 寄存器，传入参数通过 `eax` ~ `esi` 依次传递进去。在内核态中，首先进入 `trap()` 函数，然后调用 ` trap_dispatch()` 进入中断分发，当系统得知该中断为系统调用后，OS调用如下的 `syscall` 函数
+
+```c
+void
+syscall(void) {
+    struct trapframe *tf = current->tf;
+    uint32_t arg[5];
+    int num = tf->tf_regs.reg_eax;
+    if (num >= 0 && num < NUM_SYSCALLS) {
+        if (syscalls[num] != NULL) {
+            arg[0] = tf->tf_regs.reg_edx;
+            arg[1] = tf->tf_regs.reg_ecx;
+            arg[2] = tf->tf_regs.reg_ebx;
+            arg[3] = tf->tf_regs.reg_edi;
+            arg[4] = tf->tf_regs.reg_esi;
+            tf->tf_regs.reg_eax = syscalls[num](arg);
+            return ;
+        }
+    }
+    print_trapframe(tf);
+    panic("undefined syscall %d, pid = %d, name = %s.\n",
+            num, current->pid, current->name);
+}
+```
+
+该函数得到系统调用号 `num = tf->tf_regs.reg_eax;`，通过计算快速跳转到相应的 `sys_` 开头的函数，最终在内核态中，完成系统调用所需要的功能。
  
-{%s%}
+- 以ucore lab8的answer为例，尝试修改并运行ucore OS kernel代码，使其具有类似Linux应用工具`strace`的功能，即能够显示出应用程序发出的系统调用，从而可以分析ucore应用的系统调用执行过程。
+
  
-{%ends%}
+ANSWER:
+   
+利用 `trap.c` 的 `trap_in_kernel()` 函数判断是否是用户态的系统调用，调用 `syscall()` 时传入此参数
+
+```c
+    case T_SYSCALL:
+        syscall(trap_in_kernel(tf));
+        break;
+```
+更改 `syscall()` 的函数原型为
+
+```c
+    void syscall(bool);
+```
+
+之后在 `syscall(bool)` 中加入输出即可
+```c
+    int num = tf->tf_regs.reg_eax;
+    if (num >= 0 && num < NUM_SYSCALLS) {
+        if (syscalls[num] != NULL) {
+            arg[0] = tf->tf_regs.reg_edx;
+            arg[1] = tf->tf_regs.reg_ecx;
+            arg[2] = tf->tf_regs.reg_ebx;
+            arg[3] = tf->tf_regs.reg_edi;
+            arg[4] = tf->tf_regs.reg_esi;
+
+	    if (!in_kernel) {
+	    	cprintf("SYSCALL: %d\n", num);
+	    }
+            tf->tf_regs.reg_eax = syscalls[num](arg);
+            return ;
+        }
+    }
+```
+
+下面是qemu运行的输出结果片段，可以看出在用户程序输出前调用了 `SYS_open`，输出 `sh is running` 的过程中调用了 `SYS_write`
+
+``` 
+Iter 1, No.0 philosopher_sema is thinking
+kernel_execve: pid = 2, name = "sh".
+SYSCALL: 100
+SYSCALL: 100
+SYSCALL: 103
+....
+```
  
 ## 3.6 请分析函数调用和系统调用的区别
 1. 系统调用与函数调用的区别是什么？
@@ -235,14 +331,40 @@ syscalls 是保存了各种系统调用的函数指针，进入 sys_getpid，直
 
 ### 提前准备
 ```
-cd YOUR v9-cpu DIR
-git pull 
-cd YOUR os_course_spoc_exercise DIR
-git pull 
+download os_tutorial_lab
+cd os_tutorial_lab/v9_computer/os_user_task_syscall
+make
+make run
 ```
 
 ### v9-cpu系统调用实现
-  1. v9-cpu中os4.c的系统调用中参数传递代码分析。
-  1. v9-cpu中os4.c的系统调用中返回结果的传递代码分析。
-  1. 理解v9-cpu中os4.c的系统调用编写和含义。
+- [os_user_task_syscall.c](https://github.com/chyyuu/os_tutorial_lab/blob/master/v9_computer/os_user_task_syscall/os_user_task_syscall.c)的系统调用中参数传递代码分析。
 
+ANSWER:
+
+用户态程序通过 `write()` 这个API函数来实现输出的操作，而这个函数是通过系统调用来实现的。
+
+```c
+  asm(LL,8); asm(LBL,16); asm(LCL,24); asm(TRAP,S_write);
+```
+
+`write` 函数将寄存器a,b,c分别设置为三个传入参数，然后触发系统调用，在 `alltraps` 函数中，做好堆栈的处理，进入中断向量 `trap` 函数，其中将这三个参数传递给 `sys_write` 这个内核函数，在内核态完成输出，最终返回用户态。
+
+- [os_user_task_syscall.c](https://github.com/chyyuu/os_tutorial_lab/blob/master/v9_computer/os_user_task_syscall/os_user_task_syscall.c)的系统调用中返回结果的传递代码分析。
+
+ANSWER:
+
+由
+
+```c
+   case S_write: a = sys_write(a, b, c); break;
+```
+ 可知 `sys_write`函数的返回值存放在了 `a` 这一个变量所在的位置，而这个变量在 `alltraps` 中通过倒数第二句 `POPA` 将寄存器a设置为a变量的值，即函数返回值是通过寄存器a实现的。
+ 
+- 理解[os_user_task_syscall.c](https://github.com/chyyuu/os_tutorial_lab/blob/master/v9_computer/os_user_task_syscall/os_user_task_syscall.c)的的系统调用编写和含义。
+
+ANSWER:
+
+在程序中，用户态 `task0` 执行的时候，需要使用操作系统提供的输出接口，而这首先是通过一个用户态API函数调用 `write()` ；接着该函数进行系统调用，并传入必要的参数，进入内核态；在内核态中的中断处理程序过程中，系统得到 `write` 函数传入的参数，再通过内核态的函数 `sys_write` 来进行输出。
+​    
+总之，用户程序通过API函数调用、再到系统调用、再到内核态函数调用，完成了用户程序需要的输出功能。
