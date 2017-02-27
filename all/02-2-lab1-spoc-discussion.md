@@ -161,7 +161,7 @@ GRUB是一个通用的bootloader，被用于加载多种操作系统。如果放
 
 > 
 
-全局描述符表的初始化代码？
+全局描述符表的[初始化代码](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/boot/bootasm.S#L49)？
 
 - [x]  
 
@@ -182,16 +182,21 @@ GDT内容的设置格式？初始映射的基址和长度？特权级的设置�
 
 >  
 
-CR0控制寄存器的字段含义和功能有哪些？
+CR0控制寄存器的字段含义和功能有哪些？使能保护模式的控制如何实现？
+ 1. {%s%} CR0中PE标志位设置；{%ends%}
+ 1. {%s%} https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/boot/bootasm.S#L52 {%ends%}
 - [x]  
 
 > 
 
-可执行文件格式elf的各个段的数据结构？
+分析可执行文件格式elf的格式。
+ 1. ELF header的格式；([文档：Header](http://wiki.osdev.org/ELF)、[代码](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/libs/elf.h#L9)) 
+ 1. proghdr的格式分析；（[文档：Program header](http://wiki.osdev.org/ELF)、[代码](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/libs/elf.h#L28)）
 
 - [x]  
 
 > 
+
 
 如果ucore内核的elf是否要求连续存放？为什么？
 
@@ -204,6 +209,8 @@ CR0控制寄存器的字段含义和功能有哪些？
 ---
 
 函数调用的stackframe结构？函数调用的参数传递方法有哪几种？
+  1. [Understanding the Stack](http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Mips/stack.html)：函数调用时堆栈状态分析
+  1. [print_stackframe](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/kern/debug/kdebug.c#L292)：ucore中输出当前堆栈状态的函数实现
 - [x]  
 
 > 
@@ -241,7 +248,7 @@ CR0控制寄存器的字段含义和功能有哪些？
 > 特权指令、性能优化
 
 对ucore中的一段内联汇编进行完整的解释？
-
+ * [GCC-Inline-Assembly-HOWTO](http://ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html)：有_syscall3的内联汇编说明；
 - [x]  
 
 > 
@@ -258,13 +265,33 @@ CR0控制寄存器的字段含义和功能有哪些？
 
 > 
 
+IDT表的格式和初始化代码在哪？
+
+- [x]  
+
+> 
+
 中断描述表到中断服务例程的地址计算过程？
 
 - [x]  
 
 > 
 
+IDTR的初始化代码在哪？
+
+- [x]  
+
+> 
+
 中断处理中硬件压栈内容？用户态中断和内核态中断的硬件压栈有什么不同？
+ 1. {%s%}多了一个堆栈切换，并多了SS和SP的压栈；{%ends%}
+
+- [x]  
+
+> 
+
+为什么在用户态的中断响应要使用内核堆栈？
+ 1. {%s%}保护中断服务例程代码的安全；{%ends%}
 
 - [x]  
 
