@@ -161,7 +161,7 @@ GRUB是一个通用的bootloader，被用于加载多种操作系统。如果放
 
 > 
 
-全局描述符表的初始化代码？
+全局描述符表的[初始化代码](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/boot/bootasm.S#L49)？
 
 - [x]  
 
@@ -182,14 +182,16 @@ GDT内容的设置格式？初始映射的基址和长度？特权级的设置�
 
 >  
 
-CR0控制寄存器的字段含义和功能有哪些？
+CR0控制寄存器的字段含义和功能有哪些？使能保护模式的控制如何实现？
+ 1. {%s%} CR0中PE标志位设置；{%ends%}
+ 1. {%s%} https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/boot/bootasm.S#L52 {%ends%}
 - [x]  
 
 > 
 
- 1. 分析可执行文件格式elf的格式。
-  1. ELF header的格式；([文档：Header](http://wiki.osdev.org/ELF)、[代码](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/libs/elf.h#L9)) 
-  1. proghdr的格式分析；（[文档：Program header](http://wiki.osdev.org/ELF)、[代码](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/libs/elf.h#L28)）
+分析可执行文件格式elf的格式。
+ 1. ELF header的格式；([文档：Header](http://wiki.osdev.org/ELF)、[代码](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/libs/elf.h#L9)) 
+ 1. proghdr的格式分析；（[文档：Program header](http://wiki.osdev.org/ELF)、[代码](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/libs/elf.h#L28)）
 
 - [x]  
 
