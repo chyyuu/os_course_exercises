@@ -209,6 +209,8 @@ CR0控制寄存器的字段含义和功能有哪些？使能保护模式的控�
 ---
 
 函数调用的stackframe结构？函数调用的参数传递方法有哪几种？
+  1. [[http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Mips/stack.html|Understanding the Stack]]：函数调用时堆栈状态分析
+  1. [[https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/kern/debug/kdebug.c#L292|print_stackframe]]：ucore中输出当前堆栈状态的函数实现
 - [x]  
 
 > 
