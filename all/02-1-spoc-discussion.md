@@ -1,6 +1,8 @@
 #lec 3 SPOC Discussion
 
 ##**提前准备**
+（请在上课前完成）
+
 
  - 完成lec3的视频学习和提交对应的在线练习
  - git pull ucore_os_lab, v9_cpu, os_course_spoc_exercises  　in github repos。这样可以在本机上完成课堂练习。
