@@ -209,8 +209,8 @@ CR0控制寄存器的字段含义和功能有哪些？使能保护模式的控�
 ---
 
 函数调用的stackframe结构？函数调用的参数传递方法有哪几种？
-  1. [[http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Mips/stack.html|Understanding the Stack]]：函数调用时堆栈状态分析
-  1. [[https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/kern/debug/kdebug.c#L292|print_stackframe]]：ucore中输出当前堆栈状态的函数实现
+  1. [Understanding the Stack](http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Mips/stack.html)：函数调用时堆栈状态分析
+  1. [print_stackframe](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/kern/debug/kdebug.c#L292)：ucore中输出当前堆栈状态的函数实现
 - [x]  
 
 > 
@@ -248,7 +248,7 @@ CR0控制寄存器的字段含义和功能有哪些？使能保护模式的控�
 > 特权指令、性能优化
 
 对ucore中的一段内联汇编进行完整的解释？
-
+ * [GCC-Inline-Assembly-HOWTO](http://ibiblio.org/gferg/ldp/GCC-Inline-Assembly-HOWTO.html)：有_syscall3的内联汇编说明；
 - [x]  
 
 > 
