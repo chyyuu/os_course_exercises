@@ -30,6 +30,9 @@
 
 * 在piazza上就学习中不理解问题进行提问。
 
+* 观看[Peter Denning’s talk video, “Perspectives on OS Foundations”, presented at the SOSP History Day Workshop (SOSP‘15).](https://www.youtube.com/watch?v=xs6cDaXbsUA)
+
+
 # 操作系统概述思考题
 
 ---

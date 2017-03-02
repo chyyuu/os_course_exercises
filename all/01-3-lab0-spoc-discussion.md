@@ -12,6 +12,7 @@
 - 了解基于v9-cpu的执行文件的格式和内容，以及它是如何加载到v9-cpu的内存中的。
 - 在piazza上就学习中不理解问题进行提问。
 
+- 观看[Tech Talk: Linus Torvalds on git](https://www.youtube.com/watch?v=4XpnKHJAok8)
 ---
 
 ## 视频相关讨论题
