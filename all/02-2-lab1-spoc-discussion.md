@@ -61,7 +61,7 @@ ANSWER:
 ---
 
 - lab1中printfmt函数用到了可变参，请参考写一个小的linux应用程序，完成实现定义和调用一个可变参数的函数。(spoc)
-
+ - {%s}xx{%ends}
 ```
 #include <stdio.h>
 #include <stdarg.h>
