@@ -72,6 +72,7 @@ L1和L2高速缓存有什么区别？
 
 {%s%}
 - L1 高速缓存的速度更快，容量更小。
+- 通常可以把L1、L2和L3的区别理解为，L1在CPU核内，只有同一个核的重复访问时提供共享；L2在CPU内但不在核内，在同一个CPU上的不同核间提供共享；L3在CPU外的主板上，在不同CPU间提供共享。它们的容量大致相差一个数量级，如L1 32KB，L2 256KB，L3 8MB。
 {%ends%}
 
 >  http://superuser.com/questions/196143/where-exactly-l1-l2-and-l3-caches-located-in-computer
