@@ -89,10 +89,10 @@ http://coolshell.cn/tag/buddy
 >  CPU cache
 
 ### 5.2 地址空间和地址生成
-编译、链接和加载的过程了解？
+1.描述编译、汇编、链接和加载的过程是什么？
 
 
-动态链接如何使用？
+2.动态链接如何使用？
 
 {%s%}
 [编译链接和加载](http://blog.csdn.net/stanjiang2010/article/details/7069808)
