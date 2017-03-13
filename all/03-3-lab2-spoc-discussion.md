@@ -43,16 +43,6 @@ NOTICE
 1. 一条指令在执行时会有哪些可能的特权级判断？
 2. 在什么情况下会出现特权级切换？
 
-### 7.3 了解段/页表
-
-1. 一条指令执行时最多会出现多少次地址转换？
-2. 描述X86-32的MMU地址转换过程；
-
-### 7.4 了解UCORE建立段/页表
-
-1. 分析MMU的使能过程；
-2. 分析页表的建立过程；
-
 3. int指令在ring0和ring3的执行行为有什么不同？
 
  > 压栈内容是不同的，多了一个SS:ESP的压栈；进行了栈切换；
@@ -66,6 +56,16 @@ NOTICE
  > [Task state segment](https://en.wikipedia.org/wiki/Task_state_segment)
 
  > Reference: [Intel® 64 and IA-32 Architectures Software Developer Manuals](http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring/lecture04?action=AttachFile&do=view&target=325462-sdm-vol-1-2abcd-3abcd.pdf) Page 2897/4684: 7.2.1 Task-State Segment (TSS)
+
+### 7.3 了解段/页表
+
+1. 一条指令执行时最多会出现多少次地址转换？
+2. 描述X86-32的MMU地址转换过程；
+
+### 7.4 了解UCORE建立段/页表
+
+1. 分析MMU的使能过程；
+2. 分析页表的建立过程；
 
 ## 个人思考题
 
