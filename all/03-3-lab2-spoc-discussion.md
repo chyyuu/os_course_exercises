@@ -61,7 +61,18 @@ NOTICE
 
 1. 一条指令执行时最多会出现多少次地址转换？
 2. 描述X86-32的MMU地址转换过程；
+3. 尽可能详细地分析在执行进入保护械的代码“movl %eax, %cr0 ; ljmp $CODE_SEL, $0x0”时，CPU的状态和寄存器内容的变化。
 
+ > References:
+
+ > [How does setting the PE flag in CR0 enable protected mode?](http://stackoverflow.com/questions/26679682/how-does-setting-the-pe-flag-in-cr0-enable-protected-mode)
+
+ > [保护模式](http://baike.baidu.com/item/%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F)
+
+ > [Intel® 64 and IA-32 Architectures Software Developer Manuals](http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring/lecture04?action=AttachFile&do=view&target=325462-sdm-vol-1-2abcd-3abcd.pdf) Page 2981/4684: 9.9.1 Switching to Protected Mode
+
+ > [教程02: 保护模式](http://skelix.net/skelixos/tutorial02_zh.html)
+ 
 ### 7.4 了解UCORE建立段/页表
 
 1. 分析MMU的使能过程；
