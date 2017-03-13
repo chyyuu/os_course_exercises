@@ -22,10 +22,11 @@ NOTICE
 
  > CPU支持4个特权级，通常操作系统只使用了2个。
 
- > 区别：特权指令只能在ring 0使用；一条指令在不同特权下能访问的数据范围是不一样的；一条指令在不同特权级下的行为是不一样的；
-
+ > Reference: [Intel® 64 and IA-32 Architectures Software Developer Manuals](http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring/lecture04?action=AttachFile&do=view&target=325462-sdm-vol-1-2abcd-3abcd.pdf) Page 152/4684: 6.3.5 Calls to Other Privilege Levels
 
 2. 不同特权级有什么区别？
+
+ > 区别：特权指令只能在ring 0使用；一条指令在不同特权下能访问的数据范围是不一样的；一条指令在不同特权级下的行为是不一样的；
 
 ### 7.2 了解特权级切换过程
 
