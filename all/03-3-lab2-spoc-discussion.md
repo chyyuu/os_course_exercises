@@ -28,6 +28,16 @@ NOTICE
 
  > 区别：特权指令只能在ring 0使用；一条指令在不同特权下能访问的数据范围是不一样的；一条指令在不同特权级下的行为是不一样的；
 
+3. 请说明CPL、DPL和RPL在中断响应、函数调用和指令执行时的作用。
+
+ > 访问门时：从低优先级代码访问高优先级服务
+
+ > 访问段时：从高优先级代码访问低优先级数据
+
+ > Reference: [Intel® 64 and IA-32 Architectures Software Developer Manuals](http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring/lecture04?action=AttachFile&do=view&target=325462-sdm-vol-1-2abcd-3abcd.pdf) Page 2818/4684: 5.6 PRIVILEGE LEVEL CHECKING WHEN ACCESSING DATA SEGMENTS
+
+4. 写一个示例程序，完成4个特权级间的函数调用和数据访问时特权级控制的作用。
+
 ### 7.2 了解特权级切换过程
 
 1. 一条指令在执行时会有哪些可能的特权级判断？
