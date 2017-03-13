@@ -53,6 +53,20 @@ NOTICE
 1. 分析MMU的使能过程；
 2. 分析页表的建立过程；
 
+3. int指令在ring0和ring3的执行行为有什么不同？
+
+ > 压栈内容是不同的，多了一个SS:ESP的压栈；进行了栈切换；
+
+4. 如何利用int和iret指令完成不同特权级的切换？
+
+ > 人工构造需要的栈结构，然后通过int和iret指令进行切换；
+
+5. TSS和Task Register的作用是什么？
+
+ > [Task state segment](https://en.wikipedia.org/wiki/Task_state_segment)
+
+ > Reference: [Intel® 64 and IA-32 Architectures Software Developer Manuals](http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring/lecture04?action=AttachFile&do=view&target=325462-sdm-vol-1-2abcd-3abcd.pdf) Page 2897/4684: 7.2.1 Task-State Segment (TSS)
+
 ## 个人思考题
 
 ---
