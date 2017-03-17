@@ -56,6 +56,8 @@ re_os_lab, v9_cpu, os_course_spoc_exercises 　in github repos。这样可以在
 
  1. 如何提高程序执行时的局部性特征？
 
+ > 有意识地规范程序跳转和数据访问
+ 
  1. 排序算法的局部性特征？
   * 参考：[九大排序算法再总结](http://blog.csdn.net/xiazdong/article/details/8462393)
 
