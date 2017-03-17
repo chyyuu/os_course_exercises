@@ -28,7 +28,7 @@ re_os_lab, v9_cpu, os_course_spoc_exercises 　in github repos。这样可以在
  
  1. 在你写程序时遇到过内存不够的情况吗？尝试过什么解决方法？
  
- > 如：数组排序
+ > 如：数组排序、动态链接库
  
 ### 8.2 覆盖和交换
 
