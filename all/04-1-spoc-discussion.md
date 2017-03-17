@@ -46,7 +46,7 @@ re_os_lab, v9_cpu, os_course_spoc_exercises 　in github repos。这样可以在
  
  1. 如何分析内核模块间的依赖关系？
 
- 1. 如何内核模块间的函数调用列表？
+ 1. 如何获取内核模块间的函数调用列表？
 
  > 静态代码分析、动态函数调用跟踪
  
