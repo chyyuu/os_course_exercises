@@ -157,7 +157,7 @@ NOTICE
 
  > 不可以
 
-## SPOC小组思考题
+## 小组思考题
 (1) 熟悉和理解下面的简化进程管理系统中的进程状态变化情况。
  - [简化的三状态进程管理子系统使用帮助](https://github.com/chyyuu/os_tutorial_lab/blob/master/ostep/ostep7-process-run.md)
  - [简化的三状态进程管理子系统实现脚本](https://github.com/chyyuu/os_tutorial_lab/blob/master/ostep/ostep7-process-run.py)
