@@ -44,22 +44,35 @@
 
 ### 13.3 执行流程
 
-(5) do_fork中的内核线程执行的第一条指令是什么？它是如何过渡到内核线程对应的函数的？
+1. do_fork中的内核线程执行的第一条指令是什么？它是如何过渡到内核线程对应的函数的？
+
 ```
 tf.tf_eip = (uint32_t) kernel_thread_entry;
 /kern-ucore/arch/i386/init/entry.S
 /kern/process/entry.S
 ```
 
-(6)内核线程的堆栈初始化在哪？
+2. 内核线程的堆栈初始化在哪？
+
 ```
+setup_stack
 tf和context中的esp
 ```
 
-(7)fork()父子进程的返回值是不同的。这在源代码中的体现中哪？
+3. fork()父子进程的返回值是不同的。这在源代码中的体现中哪？
 
-(8)内核线程initproc的第一次执行流程是什么样的？能跟踪出来吗？
+4. 内核线程initproc的第一次执行流程是什么样的？能跟踪出来吗？
 
+5. 分析线程切换流程，找到内核堆栈、页表、寄存器切换的代码位置。
+
+6. 分析C语言中调用汇编函数switch_to()的参数传递位置。
+
+7. 对于idleproc和initproc这两个新创建的线程，线程切换后执行的第一条是什么？
+
+ > proc->context.eip = forkret;
+
+ > tf.tf_eip = (uint32_t) kernel_thread_entry;
+ 
 ## 小组练习与思考题
 
 (1)(spoc) 理解内核线程的生命周期。
