@@ -46,18 +46,17 @@
 
 1. kernel_thread创建的内核线程执行的第一条指令是什么？它是如何过渡到内核线程对应的函数的？
 
-```
-tf.tf_eip = (uint32_t) kernel_thread_entry;
-/kern-ucore/arch/i386/init/entry.S
-/kern/process/entry.S
-```
+ > tf.tf_eip = (uint32_t) kernel_thread_entry;
+
+ > /kern-ucore/arch/i386/init/entry.S
+
+ > /kern/process/entry.S
 
 2. 内核线程的堆栈初始化在哪？
 
-```
-setup_stack
-tf和context中的esp
-```
+ > setup_stack
+
+ > tf和context中的esp
 
 3. fork()父子进程的返回值是不同的。这在源代码中的体现中哪？
 
