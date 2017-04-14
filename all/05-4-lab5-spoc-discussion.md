@@ -30,9 +30,28 @@
 ### 14.2 进程的内存布局
 
 1. ucore的内存布局中，页表、用户栈、内核栈在逻辑地址空间中的位置？
-2. (spoc)尝试在panic函数中获取并输出用户栈和内核栈的函数嵌套信息，然后在你希望的地方人为触发panic函数，并输出上述信息。
-3. (spoc)尝试在panic函数中获取和输出页表有效逻辑地址空间范围和在内存中的逻辑地址空间范围，然后在你希望的地方人为触发panic函数，并输出上述信息。
-4. 尝试在进程运行过程中获取内核空间中各进程相同的页表项（代码段）和不同的页表项（内核堆栈）？
+
+ > memlayout.h
+
+ > #define VPT 0xFAC00000
+
+ > #define KSTACKPAGE 2 // # of pages in kernel stack
+
+ > #define KSTACKSIZE (KSTACKPAGE * PGSIZE) // sizeof kernel stack
+
+ > #define USERTOP 0xB0000000
+
+ > #define USTACKTOP USERTOP
+
+ > #define USTACKPAGE 256 // # of pages in user stack
+
+ > #define USTACKSIZE (USTACKPAGE * PGSIZE) // sizeof user stack
+
+1. (spoc)尝试在panic函数中获取并输出用户栈和内核栈的函数嵌套信息，然后在你希望的地方人为触发panic函数，并输出上述信息。
+
+1. (spoc)尝试在panic函数中获取和输出页表有效逻辑地址空间范围和在内存中的逻辑地址空间范围，然后在你希望的地方人为触发panic函数，并输出上述信息。
+
+1. 尝试在进程运行过程中获取内核空间中各进程相同的页表项（代码段）和不同的页表项（内核堆栈）？
 
 ### 14.3 执行ELF格式的二进制代码-do_execve的实现
 
