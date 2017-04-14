@@ -21,6 +21,8 @@
 
  > 参见：用户态函数syscall()中的汇编代码；
 
+ > Ref: https://www.ibm.com/developerworks/library/l-ia/index.html
+
 1. getpid的返回值放在什么地方了？
 
  > 参见：用户态函数syscall()中的汇编代码；
