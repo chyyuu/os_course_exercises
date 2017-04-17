@@ -53,7 +53,6 @@
 3. 尝试获取一个操作系统的调度算法的性能统计数据（CPU使用率、进程执行）。
 
 ### 15.3 先来先服务、短进程优先和最高响应比优先调度算法
-### 15.3 先来先服务、短进程优先和最高响应比优先调度算法
 
 1. 尝试描述下列处理机调度算法的工作原理和算法优缺点。
    - 先来先服务算法（FCFC、FIFO）
@@ -111,15 +110,33 @@
  
 ### 15.5 实时调度和多处理器调度
 
-1. 尝试描述下列处理机调度算法的工作原理和算法优缺点。
+1. 什么是实时操作系统？
+
+ > 实时操作系统是保证在一定时间限制内完成特定功能的操作系统。
+
+ > 参考： http://baike.baidu.com/item/%E5%AE%9E%E6%97%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F
+
+2. 什么是可调度性？
+
+ > 可调度表示一个实时操作系统能够满足任务时限要求
+
+3. 尝试描述下列处理机调度算法的工作原理和算法优缺点。
    - 速率单调调度算法(RM, Rate Monotonic) 
    - 最早截止时间优先算法 (EDF, Earliest Deadline First) 
 
-2. 有兴趣的同学，请阅读下面论文，然后说明实时调度面临的主要困难是什么？
-   - [Buttazzo, “Rate monotonic vs. EDF: Judgement Day”, EMSOFT 2003.](http://www.arl.wustl.edu/~gorinsky/cited/SPTS_Judgment_Buttazzo_2005.pdf)
+ > 任务优先级定义：按周期大小排队、按截止时间先后排队
+
+ > [RM](https://en.wikipedia.org/wiki/Rate-monotonic_scheduling)的可调度条件：CPU利用率小于ln2时，是可调度的。
+
+ > [EDF](https://en.wikipedia.org/wiki/Earliest_deadline_first_scheduling)的可调度条件：CPU利用率小于100%。
+
+4. 有兴趣的同学，请阅读下面论文，然后说明实时调度面临的主要困难是什么？
+   - [Buttazzo, “Rate monotonic vs. EDF: Judgement Day”, EMSOFT 2003.](http://www.eecs.umich.edu/courses/eecs571/reading/rm-vs-edf.pdf)
    - [单调速率及其扩展算法的可调度性判定](http://www.jos.org.cn/ch/reader/create_pdf.aspx?file_no=20040602)
 
-3. 多处理机调度中每个处理机一个就绪队列与整个系统一个就绪队列有什么不同？
+5. 多处理机调度中每个处理机一个就绪队列与整个系统一个就绪队列有什么不同？
+
+ > 区别：调度开销、负载均衡程度
 
 ### 15.6 优先级反置
 
