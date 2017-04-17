@@ -108,6 +108,12 @@
 
  > 定义调度算法接口的考虑因素：调度算法需要的调度操作类型、调度算法在各调度操作中的体现方式；
  
+6. 通过观察FIFO、SJF和RR调度算法的[模拟程序](https://github.com/chyyuu/os_tutorial_lab/blob/master/ostep/ostep8-scheduler.py)运行结果及其[描述文档](https://github.com/chyyuu/os_tutorial_lab/blob/master/ostep/ostep8-scheduler.md)，理解其工作原理和算法特征。
+
+7. 通过观察MLFQ调度算法的[模拟程序](https://github.com/chyyuu/os_tutorial_lab/blob/master/ostep/ostep9-mlfq.py)运行结果及其[描述文档](https://github.com/chyyuu/os_tutorial_lab/blob/master/ostep/ostep9-mlfq.md)，理解其工作原理和算法特征。
+
+8. 通过观察彩票调度算法([Lottery scheduling](https://en.wikipedia.org/wiki/Lottery_scheduling))的[模拟程序](https://github.com/chyyuu/os_tutorial_lab/blob/master/ostep/ostep10-lottery.py)运行结果及其[描述文档](https://github.com/chyyuu/os_tutorial_lab/blob/master/ostep/ostep10-lottery.md)，理解其工作原理和算法特征。
+
 ### 15.5 实时调度和多处理器调度
 
 1. 什么是实时操作系统？
@@ -157,6 +163,10 @@
 4. ppt中“优先级继承”页里的图示有误，你能指出来吗？
 
 ## 小组练习与思考题
+
+参考往届同学的处理机调度算法实现练习，从下列8个算法中选择一个你感兴趣的调度算法，对其实现进行完善，并分析算法特征。
+ - [2016春季-第十五讲 课堂思考题回答-向勇班](https://piazza.com/class/i5j09fnsl7k5x0?cid=803)
+ - [陈渝班-2016春季-第15讲 课堂思考题回答](https://piazza.com/class/i5j09fnsl7k5x0?cid=806)
 
 ### (1)(spoc) 理解并实现FIFO调度算法
 
