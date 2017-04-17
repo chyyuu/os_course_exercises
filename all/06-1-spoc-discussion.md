@@ -28,6 +28,12 @@
 
 ### 15.2 调度准则
 
+1. 处理机的使用模式有什么特征？
+
+ > CPU与I/O交替使用；
+
+ > 每次占用CPU执行指令的时间长度分布多数在10ms以内；
+
 1. 处理机调度的目标是什么？
 
  > CPU利用率（CPU使用率、吞吐率、周转时间、等待时间）
@@ -37,16 +43,15 @@
  > 公平性（CPU时间分配公平性）
 
 1. 尝试在ucore上写一个外排序程序，然后分析它的执行时间分布统计（每次切换后开始执行时间和放弃CPU的时间、当前用户和内核栈信息）。
+
 2. 在Linux上有一个应用程序time，可以统计应用程序的执行时间信息。请分析它是如何统计进程执行时间信息的。如可能，请在ucore上实现相同功能的应用程序。下面是可能的参考。
    - [Linux用户态程序计时方式详解](http://www.cnblogs.com/clover-toeic/p/3845210.html)
    - [Get Source Code for any Linux Command](http://www.thegeekstuff.com/2010/02/get-source-code-for-any-linux-command/)
    - [How does time command work](http://unix.stackexchange.com/questions/29800/how-does-time-command-work)
-   - http://cvs.opensolaris.org/source/xref/onnv/onnv-gate/usr/src/cmd/time/time.c
    - https://github.com/illumos/illumos-gate/blob/master/usr/src/cmd/time/time.c
-   
 
 3. 尝试获取一个操作系统的调度算法的性能统计数据（CPU使用率、进程执行）。
- 
+
 ### 15.3 先来先服务、短进程优先和最高响应比优先调度算法
 
 1. 尝试描述下列处理机调度算法的工作原理和算法优缺点。
