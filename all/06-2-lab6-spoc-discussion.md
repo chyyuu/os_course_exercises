@@ -103,7 +103,7 @@
 
  > 参考文档：[Skew heap](https://en.wikipedia.org/wiki/Skew_heap) [斜堆](http://baike.baidu.com/link?url=BYMgWi8gT5sZE2sG0ndX1CoYZVhe5NJig5s9-u1gO7ldVIxRwLzUpL9pvqN5qEOk_8nGUuJ7VSZNU8pGSicUnK)
 
- > 斜堆的堆顶是优先级最小的节点；插入和删除操作开销较小；
+ > 斜堆的堆顶是优先级最小的节点；斜堆的合并时间开销为O(logN)，删除最小节点操作和插入操作都可以转换成合并操作，开销很小；
 
 ## 小组练习与思考题
 
