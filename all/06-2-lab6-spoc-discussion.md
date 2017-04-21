@@ -25,7 +25,9 @@
 
 2. ucore的就绪队列数据结构在哪定义？在哪进行修改？
 
- > run_link
+ > kern/schedule/sched.c
+
+ > static struct run_queue __rq;
 
 3. ucore的等待队列数据结构在哪定义？在哪进行修改？
 
