@@ -62,7 +62,16 @@
 ### 16.3 时间片轮转调度算法
 
 1. 时间片轮转调度算法是如何基于调度算法支撑框架实现的？
+
+ > kern/schedule/default_sched.c
+
+ > struct sched_class default_sched_class
+
+ > 还需要分析并确定调度算法的实现会依赖哪些内核数据和对哪些内核数据有影响；
+
 2. 时钟中断如何调用RR_proc_tick()的？
+
+ > 时钟中断时会检查时间片的计数，到达零（时间片用完）时，设置可调度标志（need_resched）。
 
 ### 16.4 stride调度算法
 
