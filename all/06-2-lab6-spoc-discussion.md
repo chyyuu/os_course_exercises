@@ -75,9 +75,26 @@
 
 ### 16.4 stride调度算法
 
-1. stride调度算法的思路？ 
+1. stride调度算法的思路？
+
+ > 步长值stride
+
+ > 步进值pass
+
+ > 以步长为优先级的动态优先级调度算法；每次执行一个时间片，时间片用完时，优先级增加量为“步进”值。
+
 2. stride算法的特征是什么？
+
+ > 动态优先级调度算法
+
+ > 确定的调度顺序
+
+ > 线程的执行时间与步进值的倒数成正比
+
 3. stride调度算法是如何避免stride溢出问题的？
+
+ > 利用无符号数的有符号比较，从而避免步长值修改时的溢出处理；
+
 4. 无符号数的有符号比较会产生什么效果？
 
  > [无符号数的有符号比较会产生什么效果？](https://piazza.com/class/i5j09fnsl7k5x0?cid=357)
@@ -86,6 +103,7 @@
 
  > 参考文档：[Skew heap](https://en.wikipedia.org/wiki/Skew_heap) [斜堆](http://baike.baidu.com/link?url=BYMgWi8gT5sZE2sG0ndX1CoYZVhe5NJig5s9-u1gO7ldVIxRwLzUpL9pvqN5qEOk_8nGUuJ7VSZNU8pGSicUnK)
 
+ > 斜堆的堆顶是优先级最小的节点；插入和删除操作开销较小；
 
 ## 小组练习与思考题
 
