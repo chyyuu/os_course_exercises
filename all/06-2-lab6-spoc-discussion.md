@@ -7,9 +7,35 @@
 
 ### 16.1 总体介绍
 
-1. 进程控制块中与调度相关的字段有哪些？
+1. 进程控制块中与调度相关的字段有哪些？在什么情况下会对其进行修改？
+
+ > volatile bool need_resched;                 // bool value: need to be rescheduled to release CPU?
+
+ > uint32_t wait_state;                        // waiting state
+
+ > list_entry_t run_link;                      // the entry linked in run queue
+
+ > int time_slice;                             // time slice for occupying the CPU
+
+ > skew_heap_entry_t lab6_run_pool;            // FOR LAB6 ONLY: the entry in the run pool
+
+ > uint32_t lab6_stride;                       // FOR LAB6 ONLY: the current stride of the process
+
+ > uint32_t lab6_priority;                     // FOR LAB6 ONLY: the priority of process, set by lab6_set_priority(uint32_t)
+
 2. ucore的就绪队列数据结构在哪定义？在哪进行修改？
+
+ > run_link
+
 3. ucore的等待队列数据结构在哪定义？在哪进行修改？
+
+ > kern/schedule/sched.c
+
+ > static list_entry_t timer_list;
+
+4. 尝试跟踪ucore中的调度过程。
+
+ > 中断响应、线程的中断现场保存、中断处理、调度触发、当前线程入队、选取下一个运行线程、下一个运行线程出队、线程切换、新线程的中断现场恢复、新线程的继续执行
 
 ### 16.2 调度算法支撑框架
 
