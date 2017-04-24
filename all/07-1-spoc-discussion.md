@@ -117,7 +117,7 @@
 
 3. 尝试准确描述Eisenberg同步算法，并通过枚举和分类方法检查其正确性。
 
-4. 下列二线程同步机制是否有误？请给出分析．
+4.下列二线程同步机制是否有误？请给出分析．
 
 ```
 CONCEPT: A shared variable named turn is used to keep track of whose turn it is to enter the critical section.
@@ -136,7 +136,7 @@ EXIT PROTOCOL (for Process i ):
 ```
 
 
-5. 下列二线程同步机制是否有误？请给出分析．
+5.下列二线程同步机制是否有误？请给出分析．
 
 ```
 CONCEPT: A shared Boolean array named flags contains a flag for each process. The flag values are BUSY when the process is in its critical section (using the resource), or FREE when it is not.
@@ -163,7 +163,7 @@ EXIT PROTOCOL (for Process i ):
 
 ```
 
-6. 下列二线程同步机制是否有误？请给出分析．
+6.下列二线程同步机制是否有误？请给出分析．
 
 ```
 CONCEPT: Again we use a shared Boolean array as in Algorithm 2. Each process sets its flag before  testing the other flag, thus avoiding the problem of violating mutual exclusion.
@@ -189,7 +189,7 @@ EXIT PROTOCOL (for Process i ):
 	flags[i ] = FREE;
 ```
 
-7. 下列二线程同步机制是否有误？请给出分析．
+7.下列二线程同步机制是否有误？请给出分析．
 
 ```
 CONCEPT: To avoid the deadlock problem of Algorithm 3, we periodically clear and reset our own flag while waiting for the other one.
@@ -219,7 +219,7 @@ EXIT PROTOCOL (for Process i ):
 
 ```
 
-8. 下列二线程同步机制是否有误？请给出分析．
+8.下列二线程同步机制是否有误？请给出分析．
 
 ```
 CONCEPT: Both the turn variable and the status flags are combined in a way which we (the requesting process) set our flag and then check our neighbor's flag. 
@@ -262,7 +262,7 @@ EXIT PROTOCOL (for Process i ):
 
 ```
 
-9. 下列二线程同步机制是否有误？请给出分析． 
+9.下列二线程同步机制是否有误？请给出分析． 
 
 ```
 CONCEPT: Both the turn variable and the status flags are used.
@@ -295,7 +295,7 @@ EXIT PROTOCOL (for Process i ):
 
 ```
 
-10. 下列N线程同步机制是否有误？请给出分析． 
+10.下列N线程同步机制是否有误？请给出分析． 
 
 ```
 CONCEPT: The turn variable and status flags are used as in Dekker's algorithm for the 2-process case. The flags now have three possible values: WAITING for a process in the entry protocol, waiting for the resource' ACTIVE for a process in the critical section, using the resource; and IDLE for other cases.
@@ -364,7 +364,7 @@ EXIT PROTOCOL (for Process i ):
 ```
 
 
-11. 下列N线程同步机制是否有误？请给出分析． 
+11.下列N线程同步机制是否有误？请给出分析． 
 
 ```
 CONCEPT: Both status values and turn values are used. The status array is expanded to an integer value for each process, which is used to track that process' progress in scanning the status of other processes. The turn value is also expanded to an integer array. Its values represent the relative ordering for each pair of processes.
@@ -402,7 +402,7 @@ EXIT PROTOCOL (for Process i):
 flags[i] = -1;
 ```
 
-12. 下列N线程同步机制是否有误？请给出分析． 
+12.下列N线程同步机制是否有误？请给出分析． 
 
 ```
 CONCEPT: A process waiting to enter its critical section chooses a number. This number must be greater than all other numbers currently in use. There is a global shared array of current numbers for each process. The entering process checks all other processes sequentially, and waits for each one which has a lower number. Ties are possible; these are resolved using process IDs.
@@ -443,7 +443,7 @@ EXIT PROTOCOL (for Process i):
 	num[i] = 0;
 ```
 
-13. (spoc)基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现Eisenberg同步算法，并给出覆盖所有枚举分类的测试用例，在实现报告写出设计思路和测试结果分析。
+13.(spoc)基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现Eisenberg同步算法，并给出覆盖所有枚举分类的测试用例，在实现报告写出设计思路和测试结果分析。
 
 ### 17.5 高级抽象的同步方法
 
