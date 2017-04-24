@@ -92,35 +92,32 @@
 1. 软件同步方法中的5种解决方案（三种尝试方案、Peterson算法和Eisenberg算法）的核心思路是什么？举例描述可能的漏洞。
 
  > 方案一：turn 表示允许进入临界区的线程标识；
+方案漏洞：交替进入临界区；
 
  > 方案二：flag[i] 表示线程i是否在临界区；
 先判断，后修改变量；
+方案漏洞：并发判断后，可能出现同时进入临界区；
 
  > 方案二：flag[i] 表示线程i想要进入临界区；
 先修改变量，后判断；
+方案漏洞：并发修改变量后，可能出现都无法进入临界区的情况；
 
  > Peterson算法：turn 表示进入临界区的线程标识，flag[i] 表示线程i想要进入临界区；
 先修改变量，后判断；后修改者等待；
 只适用于两个进程；
+方案正确性枚举判断：按写变量的顺序进行情况分类
 
  > Eisenberg算法：flag[i] 表示线程i想要进入临界区，turn 表示进入临界区的线程标识（有多个想进入时）；
 进入区：先修改flag，后判断是否有多个想进入；后修改者等待；
 退出区：修改turn；
 适用于多个进程；
+方案正确性枚举判断：按写变量flag[i]的顺序和变量turn当前值进行情况分类
 
 2. 尝试通过枚举和分类方法检查Peterson算法的正确性。
+
 3. 尝试准确描述Eisenberg同步算法，并通过枚举和分类方法检查其正确性。
-4. (spoc)基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现Eisenberg同步算法，并给出覆盖所有枚举分类的测试用例，在实现报告写出设计思路和测试结果分析。
 
-### 17.5 高级抽象的同步方法
-
-1. 如何证明TS指令和交换指令的等价性？
-2. 自旋锁（spinlock）和无忙等待锁是如何实现同步的？它们有什么不同？
-3. 为什么硬件原子操作指令能简化同步算法的实现？
-
-### 17.6 判断题
-
-1. 下列二线程同步机制是否有误？请给出分析．
+4. 下列二线程同步机制是否有误？请给出分析．
 
 ```
 CONCEPT: A shared variable named turn is used to keep track of whose turn it is to enter the critical section.
@@ -139,7 +136,7 @@ EXIT PROTOCOL (for Process i ):
 ```
 
 
-2. 下列二线程同步机制是否有误？请给出分析．
+5. 下列二线程同步机制是否有误？请给出分析．
 
 ```
 CONCEPT: A shared Boolean array named flags contains a flag for each process. The flag values are BUSY when the process is in its critical section (using the resource), or FREE when it is not.
@@ -166,7 +163,7 @@ EXIT PROTOCOL (for Process i ):
 
 ```
 
-3. 下列二线程同步机制是否有误？请给出分析．
+6. 下列二线程同步机制是否有误？请给出分析．
 
 ```
 CONCEPT: Again we use a shared Boolean array as in Algorithm 2. Each process sets its flag before  testing the other flag, thus avoiding the problem of violating mutual exclusion.
@@ -192,7 +189,7 @@ EXIT PROTOCOL (for Process i ):
 	flags[i ] = FREE;
 ```
 
-4. 下列二线程同步机制是否有误？请给出分析．
+7. 下列二线程同步机制是否有误？请给出分析．
 
 ```
 CONCEPT: To avoid the deadlock problem of Algorithm 3, we periodically clear and reset our own flag while waiting for the other one.
@@ -222,7 +219,7 @@ EXIT PROTOCOL (for Process i ):
 
 ```
 
-5. 下列二线程同步机制是否有误？请给出分析．
+8. 下列二线程同步机制是否有误？请给出分析．
 
 ```
 CONCEPT: Both the turn variable and the status flags are combined in a way which we (the requesting process) set our flag and then check our neighbor's flag. 
@@ -265,7 +262,7 @@ EXIT PROTOCOL (for Process i ):
 
 ```
 
-6. 下列二线程同步机制是否有误？请给出分析． 
+9. 下列二线程同步机制是否有误？请给出分析． 
 
 ```
 CONCEPT: Both the turn variable and the status flags are used.
@@ -298,7 +295,7 @@ EXIT PROTOCOL (for Process i ):
 
 ```
 
-6. 下列N线程同步机制是否有误？请给出分析． 
+10. 下列N线程同步机制是否有误？请给出分析． 
 
 ```
 CONCEPT: The turn variable and status flags are used as in Dekker's algorithm for the 2-process case. The flags now have three possible values: WAITING for a process in the entry protocol, waiting for the resource' ACTIVE for a process in the critical section, using the resource; and IDLE for other cases.
@@ -367,7 +364,7 @@ EXIT PROTOCOL (for Process i ):
 ```
 
 
-7. 下列N线程同步机制是否有误？请给出分析． 
+11. 下列N线程同步机制是否有误？请给出分析． 
 
 ```
 CONCEPT: Both status values and turn values are used. The status array is expanded to an integer value for each process, which is used to track that process' progress in scanning the status of other processes. The turn value is also expanded to an integer array. Its values represent the relative ordering for each pair of processes.
@@ -405,7 +402,7 @@ EXIT PROTOCOL (for Process i):
 flags[i] = -1;
 ```
 
-8. 下列N线程同步机制是否有误？请给出分析． 
+12. 下列N线程同步机制是否有误？请给出分析． 
 
 ```
 CONCEPT: A process waiting to enter its critical section chooses a number. This number must be greater than all other numbers currently in use. There is a global shared array of current numbers for each process. The entering process checks all other processes sequentially, and waits for each one which has a lower number. Ties are possible; these are resolved using process IDs.
@@ -445,6 +442,14 @@ EXIT PROTOCOL (for Process i):
 	/* clear our number */
 	num[i] = 0;
 ```
+
+13. (spoc)基于“python, ruby, C, C++，LISP、JavaScript”等语言模拟实现Eisenberg同步算法，并给出覆盖所有枚举分类的测试用例，在实现报告写出设计思路和测试结果分析。
+
+### 17.5 高级抽象的同步方法
+
+1. 如何证明TS指令和交换指令的等价性？
+2. 自旋锁（spinlock）和无忙等待锁是如何实现同步的？它们有什么不同？
+3. 为什么硬件原子操作指令能简化同步算法的实现？
 
 ## 小组思考题
 
