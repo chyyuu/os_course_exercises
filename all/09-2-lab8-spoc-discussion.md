@@ -29,11 +29,27 @@
 
  1. 请简要阐述ucore 文件系统架构的四个组成部分
 
- > 系统调用接口、VFS、SFS和I/O接口
+ > 系统调用接口：用户应用使用封装后的libc库函数，文件访问的libc库函数利用文件访问系统调用来实现；
+
+ > VFS：内核的系统调用（文件、目录接口）会转换成对VFS抽象的文件访问接口（索引节点、文件卷、设备等接口）的调用，VFS再把抽象的VFS接口转换成具体的文件系统SFS的访问接口；
+
+ > SFS：利用具体文件系统存储结构的解析，把SFS对上接口（索引节点、文件卷、设备等接口）的访问请求转换成设备数据块的访问；
+
+ > I/O接口：不同具体设备上的数据块访问控制；
 
  2. 请简要说明进程proc_struct、文件file、inode之间的关系。 
- 
+
+ > 进程控制块数据结构proc_struct中，struct files_struct *filesp指向进程的打开文件表；
+
+ > 进程打开文件表中struct file *file指向系统打开文件中的相应文件状态数据；
+
+ > VFS中的系统打开文件表中struct inode *inode维护打开文件的状态信息，并最终对应到磁盘上的存储数据块；
+
  3. ucore中的进程打开文件表和系统打开文件表对应到具体的哪个数据结构上？
+
+ > kern-ucore/fs/vfs/inode.h
+
+ > struct inode: union in_info
 
 ### 22.3 Simple File System分析
 
