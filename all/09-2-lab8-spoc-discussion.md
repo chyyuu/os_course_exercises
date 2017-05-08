@@ -55,11 +55,25 @@
 
  1. SFS在硬盘上的四大部分主要是什么，有何作用？
  
- > superblock, root-dir inode, freemap, data block
+ > superblock：数据块大小、文件卷名字等文件卷信息
+ 
+ > root-dir inode：根目录的inode信息（存储位置等）
+ 
+ > freemap：数据块占用状态信息
+ 
+ > data block：目录和文件的信息
 
  2. 硬盘上的SFS是如何加载到ucore中并初始化的？
+ 
+ > sfs_do_mount()
+
  3. 硬盘上的inode和内存中的inode的关系和区别是什么?
+ 
+ > 内存中的inode数据结构sfs_inode中有一个字段sfs_disk_inode，它对应磁盘上的inode；
+
  4. 描述file, dir, inode在内存和磁盘上的格式和相关操作。
+ 
+ > 每一种类型的数据块都在SFS层中有对应的操作函数指针和数据结构定义；
 
 ### 22.4 Virtual File System分析
 
