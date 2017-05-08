@@ -102,8 +102,21 @@
 ### 22.5 I/O 设备接口分析
 
  1. device数据结构的主要内容是什么？与fs的关系是什么？与inode的关系是什么？
+
+ > struct device数据结构的内容：数据块大小、设备操作函数指针（d_open, d_close, d_io, d_ioctl）
+
+ > fs和inode通过device数据结构中的设备操作函数指针实现对设备数据块的访问；
+
  2. 比较ucore中I/O接口、SFS文件系统接口和文件系统的系统调用接口的操作函数有什么异同？
- 
+
+ > 文件系统的系统调用接口：sys_open, sys_close, sys_read, sys_write, sys_seek, sys_fstat, sys_fsync, sys_chdir, sys_getcwd, sys_mkdir, sys_link, sys_rename, sys_unlink, sys_getdirentry, sys_dup, sys_pipe, sys_mkfifo, sys_mount, sys_umount, sys_ioctl
+
+ > VFS文件系统接口：vfs_open, vfs_close, vfs_link, vfs_symlink, vfs_readlink, vfs_mkdir, vfs_unlink, vfs_rename, vfs_chdir, vfs_getcwd
+
+ > SFS文件系统接口：sfs_rblock, sfs_wblock, sfs_rbuf, sfs_wbuf, sfs_sync_super, sfs_sync_freemap, sfs_clear_block, sfs_load_inode
+
+ > I/O接口：d_open, d_close, d_io, d_ioctl
+
 ## 小组思考题
 
 1. (spoc) 理解文件访问的执行过程，即在ucore运行过程中通过`cprintf`函数来完整地展现出来读一个文件在ucore中的整个执行过程，(越全面细致越好)
