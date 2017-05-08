@@ -197,8 +197,8 @@
   - http://en.wikipedia.org/wiki/File_system
   - http://en.wikipedia.org/wiki/List_of_file_systems
 
-  请同学们依据自己的选择，在下面链接处回复分析结果。
-  - [FAT文件系统分析](https://piazza.com/class/i5j09fnsl7k5x0?cid=416)
+  往届同学的参考回答：
+  - [FAT文件系统分析](https://piazza.com/class/i5j09fnsl7k5x0?cid=416)
   - [NTFS文件系统分析](https://piazza.com/class/i5j09fnsl7k5x0?cid=417)
   - [UFS文件系统分析](https://piazza.com/class/i5j09fnsl7k5x0?cid=418)
   - [ZFS文件系统分析](https://piazza.com/class/i5j09fnsl7k5x0?cid=861)
