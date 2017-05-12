@@ -109,13 +109,33 @@
  > 双队列扫描(FSCAN)磁盘调度算法：1）把磁盘I/O请求分成两个队列，交替使用扫描算法处理一个队列；2）新生成的磁盘I/O请求放入另一队列中
 
 ### 23.5 磁盘缓存
+
  1. 磁盘缓存的作用是什么？
+
+ > 磁盘扇区在内存中的缓存区，作用是通过缓存访问，减少磁盘访问；
+
  1. 请描述单缓存(Single Buffer Cache)的工作原理
+
+ > 只一个缓存区，用户进程和I/O设备只能交替访问缓存区；
+
  1. 请描述双缓存(Double Buffer Cache)的工作原理
+
+ > 设置两个缓存区，任何时刻用户进程和I/O设备可同时访问不同的缓存区；
+
  1. 请描述访问频率置换算法(Frequency-based Replacement)的基本原理
+
+ > 思路：短周期内采用LRU，长周期内采用LFU
+
+ > 做法：把栈分成三个区域：新区域、中间区域、旧区域
+
+ > 新区域中数据块的引用，不计数；
+
+ > 中间区域和旧区域中数据块的引用，引用计数加1；
+
+ > 淘汰只在旧区域中找引用计数最小的数据块
 
 ## 小组思考题
  1. (spoc)请以键盘输入、到标准输出设备stdout的printf输出、串口输出、磁盘文件复制为例，描述ucore操作系统I/O从请求到完成的整个执行过程，并分析I/O过程的时间开销。
- 2. (spoc)完成磁盘访问与磁盘寻道算法的作业，具体帮助和要求信息请看[disksim指导信息](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab8/disksim-homework.md)和[disksim参考代码](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab8/disksim-homework.py)
+ 2. (spoc)完成磁盘访问与磁盘寻道算法的作业，具体帮助和要求信息请看[Chapter 37: Hard Disk Drives](http://pages.cs.wisc.edu/~remzi/OSTEP/file-disks.pdf)、[disksim指导信息](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab8/disksim-homework.md)和[disksim参考代码](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab8/disksim-homework.py)
 
 
