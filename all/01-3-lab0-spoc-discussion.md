@@ -22,7 +22,7 @@
 
 - 理解list_entry双向链表数据结构及其4个基本操作函数和ucore中一些基于它的代码实现（此题不用填写内容）
 
-- 对于如下的代码段，请说明”：“后面的数字是什么含义
+- 对于如下的代码段，请说明":"后面的数字是什么含义
 ```
  /* Gate descriptors for interrupts and traps */
  struct gatedesc {
