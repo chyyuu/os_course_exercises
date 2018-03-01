@@ -22,6 +22,12 @@
 
 - 理解list_entry双向链表数据结构及其4个基本操作函数和ucore中一些基于它的代码实现（此题不用填写内容）
 
+- 宏定义和引用在内核代码中很常用。请枚举ucore中宏定义的用途，并举例描述其含义。
+
+ > 利用宏进行复杂数据结构中的数据访问；
+ > 利用宏进行数据类型转换；如 to_struct, 
+ > 常用功能的代码片段优化；如  ROUNDDOWN, SetPageDirty
+
 - 对于如下的代码段，请说明":"后面的数字是什么含义
 ```
  /* Gate descriptors for interrupts and traps */
