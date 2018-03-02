@@ -22,12 +22,6 @@
 
 - 理解list_entry双向链表数据结构及其4个基本操作函数和ucore中一些基于它的代码实现（此题不用填写内容）
 
-- 宏定义和引用在内核代码中很常用。请枚举ucore中宏定义的用途，并举例描述其含义。
-
- > 利用宏进行复杂数据结构中的数据访问；
- > 利用宏进行数据类型转换；如 to_struct, 
- > 常用功能的代码片段优化；如  ROUNDDOWN, SetPageDirty
-
 - 对于如下的代码段，请说明":"后面的数字是什么含义
 ```
  /* Gate descriptors for interrupts and traps */
@@ -66,3 +60,27 @@ intr=8;
 SETGATE(intr, 1,2,3,0);
 ```
 请问执行上述指令后， intr的值是多少？
+
+### 课堂实践练习
+
+#### 练习一
+
+请在ucore中找一段你认为难度适当的AT&T格式X86汇编代码，尝试解释其含义。
+
+  - [Intel格式和AT&T格式汇编区别](http://www.cnblogs.com/hdk1993/p/4820353.html)
+
+  - ##### [x86汇编指令集  ](http://hiyyp1234.blog.163.com/blog/static/67786373200981811422948/)
+
+  - ##### [PC Assembly Language, Paul A. Carter, November 2003.](https://pdos.csail.mit.edu/6.828/2016/readings/pcasm-book.pdf)
+
+  - ##### [*Intel 80386 Programmer's Reference Manual*, 1987](https://pdos.csail.mit.edu/6.828/2016/readings/i386/toc.htm)
+
+  - ##### [[IA-32 Intel Architecture Software Developer's Manuals](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html)]
+
+#### 练习二
+
+宏定义和引用在内核代码中很常用。请枚举ucore中宏定义的用途，并举例描述其含义。
+
+ > 利用宏进行复杂数据结构中的数据访问；
+ > 利用宏进行数据类型转换；如 to_struct, 
+ > 常用功能的代码片段优化；如  ROUNDDOWN, SetPageDirty
