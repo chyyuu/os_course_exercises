@@ -1,6 +1,6 @@
-#lec 3 SPOC Discussion
+# lec 3 SPOC Discussion
 
-##**提前准备**
+## **提前准备**
 （请在上课前完成）
 
 
