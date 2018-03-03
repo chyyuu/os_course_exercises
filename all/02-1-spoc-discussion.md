@@ -326,45 +326,9 @@ SYSCALL: 103
  1. 通过分析`int`、`iret`、`call`和`ret`的指令准确功能和调用代码，比较函数调用与系统调用的堆栈操作有什么不同？
    1. {%s%}SS:SP压栈{%ends%}
 
-## v9-cpu相关题目
----
+## 课堂实践
+### 练习一
+通过动态跟踪分析，举例描述Linux的函数调用过程，及调用参数和返回值的传递方法。
 
-### 提前准备
-```
-download os_tutorial_lab
-cd os_tutorial_lab/v9_computer/os_user_task_syscall
-make
-make run
-```
-
-### v9-cpu系统调用实现
-- [os_user_task_syscall.c](https://github.com/chyyuu/os_tutorial_lab/blob/master/v9_computer/os_user_task_syscall/os_user_task_syscall.c)的系统调用中参数传递代码分析。
-
-ANSWER:
-
-用户态程序通过 `write()` 这个API函数来实现输出的操作，而这个函数是通过系统调用来实现的。
-
-```c
-  asm(LL,8); asm(LBL,16); asm(LCL,24); asm(TRAP,S_write);
-```
-
-`write` 函数将寄存器a,b,c分别设置为三个传入参数，然后触发系统调用，在 `alltraps` 函数中，做好堆栈的处理，进入中断向量 `trap` 函数，其中将这三个参数传递给 `sys_write` 这个内核函数，在内核态完成输出，最终返回用户态。
-
-- [os_user_task_syscall.c](https://github.com/chyyuu/os_tutorial_lab/blob/master/v9_computer/os_user_task_syscall/os_user_task_syscall.c)的系统调用中返回结果的传递代码分析。
-
-ANSWER:
-
-由
-
-```c
-   case S_write: a = sys_write(a, b, c); break;
-```
- 可知 `sys_write`函数的返回值存放在了 `a` 这一个变量所在的位置，而这个变量在 `alltraps` 中通过倒数第二句 `POPA` 将寄存器a设置为a变量的值，即函数返回值是通过寄存器a实现的。
- 
-- 理解[os_user_task_syscall.c](https://github.com/chyyuu/os_tutorial_lab/blob/master/v9_computer/os_user_task_syscall/os_user_task_syscall.c)的的系统调用编写和含义。
-
-ANSWER:
-
-在程序中，用户态 `task0` 执行的时候，需要使用操作系统提供的输出接口，而这首先是通过一个用户态API函数调用 `write()` ；接着该函数进行系统调用，并传入必要的参数，进入内核态；在内核态中的中断处理程序过程中，系统得到 `write` 函数传入的参数，再通过内核态的函数 `sys_write` 来进行输出。
-​    
-总之，用户程序通过API函数调用、再到系统调用、再到内核态函数调用，完成了用户程序需要的输出功能。
+### 练习二
+通过动态跟踪分析，举例描述Linux的系统调用过程，及调用参数和返回值的传递方法。。
