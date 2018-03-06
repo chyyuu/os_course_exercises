@@ -20,48 +20,32 @@
 
 ## 3.1 BIOS
 -  BIOS从磁盘读入的第一个扇区是是什么内容？为什么没有直接读入操作系统内核映像？
-  
 - 比较UEFI和BIOS的区别。
 
 
 ## 3.2 系统启动流程
 
 - 分区引导扇区的结束标志是什么？
-- 如何指定内核加载的参数？
-- BIOS、BIOS-MBR、BIOS-GPT的区别是什么？
 - 在UEFI中的可信启动有什么作用？
-
 
 ## 3.3 中断、异常和系统调用比较
 - 什么是中断、异常和系统调用？
-
 -  中断、异常和系统调用的处理流程有什么异同？
-
-- 如何理解系统调用的同步和异步响应？
-      
-- 系统调用表的内容是什么？
-
-
 - 以ucore lab8的answer为例，uCore的系统调用有哪些？大致的功能分类有哪些？
 
 ## 3.4 linux系统调用分析
 -  通过分析[lab1_ex0](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab1/lab1-ex0.md)了解Linux应用的系统调用编写和含义。(仅实践，不用回答)
-
- 
 - 通过调试[lab1_ex1](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab1/lab1-ex1.md)了解Linux应用的系统调用执行过程。(仅实践，不用回答)
 
 
 ## 3.5 ucore系统调用分析 （扩展练习，可选）
 -  基于实验八的代码分析ucore的系统调用实现，说明指定系统调用的参数和返回值的传递方式和存放位置信息，以及内核中的系统调用功能实现函数。
-
 - 以ucore lab8的answer为例，分析ucore 应用的系统调用编写和含义。
- 
 - 以ucore lab8的answer为例，尝试修改并运行ucore OS kernel代码，使其具有类似Linux应用工具`strace`的功能，即能够显示出应用程序发出的系统调用，从而可以分析ucore应用的系统调用执行过程。
 
  
 ## 3.6 请分析函数调用和系统调用的区别
 - 系统调用与函数调用的区别是什么？
- 
 - 通过分析`int`、`iret`、`call`和`ret`的指令准确功能和调用代码，比较函数调用与系统调用的堆栈操作有什么不同？
 
 
