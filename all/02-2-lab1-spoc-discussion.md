@@ -343,22 +343,5 @@ ANSWER:
 
 ---
 
-## v9-cpu相关题目
----
-
-### 提前准备
-```
-download os_tutorial_lab
-cd os_tutorial_lab/v9_computer/os_user_task_syscall
-make
-make run
-
-```
-
-### v9-cpu的执行过程(challenge)
-  1. 参考os*.c，写一个小程序，能够显示在用户态无法执行的所有特权指令，能够显示出不同特权级的的中断切换的堆栈变化情况。
-  1. 扩展em.c，可以打印v9-cpu执行的每一条指令和寄存器状态
-  1. 扩展em.c，在产生fatal错误后，把这之前执行的n条指令和寄存器状态打印出来
-  1. 扩展c.c和em.c，使得可以指定em.c能够跟踪并打印执行程序中对全局变量的读写或修改的指令，以及指令的执行情况
-  1. 扩展em.c的debugger功能，可以设置断点
-  1. 扩展em.c的debugger功能，可以任意打断当前执行程序的执行，回到debugger
+## 课堂实践
+在ucore中写一个函数print_stackframe()，用于获取当前位置的函数调用栈信息。实现如下一种或多种功能：函数入口地址、函数名信息、参数调用参数信息、返回值信息。
