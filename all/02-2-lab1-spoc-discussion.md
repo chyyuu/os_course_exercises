@@ -27,9 +27,25 @@
 
 - 段寄存器的字段含义和功能有哪些？
 
+1. 代码段寄存器 CS（Code Segment）存放当前正在运行的程序代码所在段的段基址，表示当前使用的指令代码可以从该段寄存器指定的存储器段中取得，相应的偏移量则由IP提供
+2. 数据段寄存器 DS（Data Segment）指出当前程序使用的数据所存放段的最低地址，即存放数据段的段基址
+3. 堆栈段寄存器 SS（Stack Segment）指出当前堆栈的底部地址，即存放堆栈段的段基址
+4. 附加段寄存器 ES（Extra Segment）指出当前程序使用附加数据段的段基址，该段是串操作指令中目的串所在的段
+5. 附加段寄存器 FS
+6. 附加段寄存器 GS
+
 - 描述符特权级DPL、当前特权级CPL和请求特权级RPL的含义是什么？在哪些寄存器中存在这些字段？对应的访问条件是什么？
 
+参见[DPL,RPL,CPL 之间的联系和区别](http://blog.csdn.net/better0332/article/details/3416749)对特权级的表述。
+
 - 分析可执行文件格式elf的格式（无需回答）
+
+1. ELF header的格式
+  * [文档：Header](http://wiki.osdev.org/ELF)
+  * [代码](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/libs/elf.h#L9)
+2. proghdr的格式分析
+  * [文档：Program header](http://wiki.osdev.org/ELF)
+  * [代码](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/libs/elf.h#L28)
 
 ### 4.2 C函数调用的实现
 
@@ -37,13 +53,31 @@
 
 - 中断处理中硬件压栈内容？用户态中断和内核态中断的硬件压栈有什么不同？
 
+参见实验指导书[中断与异常](https://objectkuan.gitbooks.io/ucore-docs/lab1/lab1_3_3_2_interrupt_exception.html)部分。
+
 - 为什么在用户态的中断响应要使用内核堆栈？
 
+保护中断服务例程代码的安全。
+
 - trap类型的中断门与interrupt类型的中断门有啥设置上的差别？如果在设置中断门上不做区分，会有什么可能的后果?
+
+当调用Interrupt Gate时，Interrupt会被CPU自动禁止；而调用Trap Gate时，CPU则不会去禁止或打开中断，而是保留它原来的样子。
+所谓“自动禁止”，指的是CPU跳转到Interrupt Gate里的地址时，在将EFLAGS保存到栈上之后，清除EFLAGS里的IF位，以避免重复触发中断。
 
 ### 4.8 练习四和五 ucore内核映像加载和函数调用栈分析
 
 - 在kdebug.c文件中用到的函数`read_ebp`是内联的，而函数`read_eip`不是内联的。为什么要设计成这样？
+
+由于没有直接获取`eip`值的指令，我们需要利用`call`指令将`eip`压栈的特性，通过调用`read_eip`函数来读出压在栈上的`eip`的值。若将`read_eip`内联，则不会有函数调用存在，无法获得`eip`的值。
+
+```c
+static __noinline uint32_t
+read_eip(void) {
+    uint32_t eip;
+    asm volatile("movl 4(%%ebp), %0" : "=r" (eip));
+    return eip;
+}
+```
 
 ### 4.9 练习六 完善中断初始化和处理
 
