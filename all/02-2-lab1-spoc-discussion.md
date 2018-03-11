@@ -41,7 +41,7 @@
 ### 4.4 x86中断处理过程
 
 1. 中断处理中硬件压栈内容？用户态中断和内核态中断的硬件压栈有什么不同？
-* 参见实验指导书[中断与异常](https://objectkuan.gitbooks.io/ucore-docs/lab1/lab1_3_3_2_interrupt_exception.html)部分。
+	* 参见实验指导书[中断与异常](https://objectkuan.gitbooks.io/ucore-docs/lab1/lab1_3_3_2_interrupt_exception.html)部分。
 2. 为什么在用户态的中断响应要使用内核堆栈？
 	* 保护中断服务例程代码的安全。
 3. trap类型的中断门与interrupt类型的中断门有啥设置上的差别？如果在设置中断门上不做区分，会有什么可能的后果?
@@ -52,7 +52,8 @@
 ### 4.8 练习四和五 ucore内核映像加载和函数调用栈分析
 
 1. 在kdebug.c文件中用到的函数`read_ebp`是内联的，而函数`read_eip`不是内联的。为什么要设计成这样？
-	* 由于没有直接获取`eip`值的指令，我们需要利用`call`指令将`eip`压栈的特性，通过调用`read_eip`函数来读出压在栈上的`eip`的值。若将`read_eip`内联，则不会有函数调用存在，无法获得`eip`的值。
+	* `ebp`可以直接获得，若不内联则会得到错误的`ebp`值
+	* 而由于没有直接获取`eip`值的指令，我们需要利用`call`指令将`eip`压栈的特性，通过调用`read_eip`函数来读出压在栈上的`eip`的值。若将`read_eip`内联，则不会有函数调用存在，无法获得`eip`的值。
 ```c
 static __noinline uint32_t
 read_eip(void) {
@@ -61,12 +62,11 @@ read_eip(void) {
     return eip;
 }
 ```
-	* `ebp`可以直接获得，若不内联则会得到错误的`ebp`值
 
 ### 4.9 练习六 完善中断初始化和处理
 
 1. CPU加电初始化后中断是使能的吗？为什么？
-* 不是。CPU启动后，BIOS会在POST自检在内存中建立中断向量表和中断服务程序。
+	* 不是。CPU启动后，BIOS会在POST自检在内存中建立中断向量表和中断服务程序。
 
 ## 开放思考题
 
