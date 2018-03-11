@@ -38,8 +38,6 @@
 	  * [文档：Program header](http://wiki.osdev.org/ELF)
 	  * [代码](https://github.com/chyyuu/ucore_os_lab/blob/master/labcodes_answer/lab1_result/libs/elf.h#L28)
 
-### 4.2 C函数调用的实现
-
 ### 4.4 x86中断处理过程
 
 1. 中断处理中硬件压栈内容？用户态中断和内核态中断的硬件压栈有什么不同？
@@ -55,7 +53,6 @@
 
 1. 在kdebug.c文件中用到的函数`read_ebp`是内联的，而函数`read_eip`不是内联的。为什么要设计成这样？
 	* 由于没有直接获取`eip`值的指令，我们需要利用`call`指令将`eip`压栈的特性，通过调用`read_eip`函数来读出压在栈上的`eip`的值。若将`read_eip`内联，则不会有函数调用存在，无法获得`eip`的值。
-
 ```c
 static __noinline uint32_t
 read_eip(void) {
@@ -64,10 +61,12 @@ read_eip(void) {
     return eip;
 }
 ```
+	* `ebp`可以直接获得，若不内联则会得到错误的`ebp`值
 
 ### 4.9 练习六 完善中断初始化和处理
 
 1. CPU加电初始化后中断是使能的吗？为什么？
+* 不是。CPU启动后，BIOS会在POST自检在内存中建立中断向量表和中断服务程序。
 
 ## 开放思考题
 
