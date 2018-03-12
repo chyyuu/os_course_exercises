@@ -86,3 +86,14 @@ struct list_entry是如何把数据元素组织成链表的？
 - 为何要在OS内部和用户态中实现两层动态内存分配？
 
 - 为何在OS内部没有采用GC分配方式？
+
+## 课堂实践
+
+观察最先匹配、最佳匹配和最差匹配这几种动态分区分配算法的工作过程，并选择一个例子进行分析分析整个工作过程中的分配和释放操作对维护数据结构的影响和原因。
+
+  * [算法演示脚本的使用说明](https://github.com/chyyuu/os_tutorial_lab/blob/master/ostep/ostep3-malloc.md)
+  * [算法演示脚本](https://github.com/chyyuu/os_tutorial_lab/blob/master/ostep/ostep3-malloc.py)
+
+
+
+
