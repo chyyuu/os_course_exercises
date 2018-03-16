@@ -128,7 +128,7 @@ Virtual Address 7268:
 
 ## interactive　understand VM
 
-- [Virtual Memory with 256 Bytes of RAM](http://blog.robertelder.org/virtual-memory-with-256-bytes-of-ram/)：这是一个只有256字节内存的一个极小计算机系统。按作者的[[https://github.com/RobertElderSoftware/recc#what-can-this-project-do|特征描述]]，它具备如下的功能。
+- [Virtual Memory with 256 Bytes of RAM](http://blog.robertelder.org/virtual-memory-with-256-bytes-of-ram/)：这是一个只有256字节内存的一个极小计算机系统。按作者的[特征描述](https://github.com/RobertElderSoftware/recc#what-can-this-project-do)，它具备如下的功能。
  - CPU的实现代码不多于500行；
  - 支持14条指令、进程切换、虚拟存储和中断；
  - 用C实现了一个小的操作系统微内核可以在这个CPU上正常运行；
