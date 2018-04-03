@@ -10,7 +10,13 @@
 2. 进程有哪些组成部分？
 
 
-3. 程序和进程联系和区别是什么？
+3. 请举例说明进程的独立性和制约性的含义。
+
+ > 进程的独立性是指不同进程的执行过程相互不受影响。如一个进程在相同数据集上的多次执行结果是一致的。
+ 
+ > 进程的制约性是指不同进程间由于数据或资源的共享和通信关系而形成的相互制约。如一个进程在相同数据集上的多次执行可能由于资源分配不成功而导致结果不同。
+
+4. 程序和进程联系和区别是什么？
 
 
 ### 11.2 进程控制块
@@ -74,7 +80,7 @@
  - [简化的三状态进程管理子系统使用帮助](https://github.com/chyyuu/os_tutorial_lab/blob/master/ostep/ostep7-process-run.md)
  - [简化的三状态进程管理子系统实现脚本](https://github.com/chyyuu/os_tutorial_lab/blob/master/ostep/ostep7-process-run.py)
 
-(2) (spoc)设计一个简化的进程管理子系统，可以管理并调度如下简化进程.给出了[参考代码](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab4/process-concept-homework.py)，请理解代码，并完成＂YOUR CODE"部分的内容．　可２个人一组
+(2) (spoc)设计一个简化的进程管理子系统，可以管理并调度如下简化进程。在理解[参考代码](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab4/process-concept-homework.py)的基础上，完成＂YOUR CODE"部分的内容。然后通过测试用例和比较自己的实现与往届同学的结果，评价自己的实现是否正确。可２个人一组。
 
 ### 进程的状态 
 
