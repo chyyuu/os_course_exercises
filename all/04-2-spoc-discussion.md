@@ -4,19 +4,14 @@
 
 ### 9.1 页面置换算法的概念
 
-1. 置换算法的功能？
-
- > 选择被置换的物理页面
-
-2. 设计置换算法时需要考虑哪些影响因素？如何评判的好坏？
-
+1. 设计置换算法时需要考虑哪些影响因素？如何评判的好坏？
  > 目标：尽可能减少页面的调入调出次数
 
  > 影响因素：进程的页面访问规律（访问模式、访问频度）
 
  > 评判标准：记录并统计产生缺页的次数
 
-3. 全局和局部置换算法的不同？
+2. 全局和局部置换算法的不同？
 
  > 局部置换是在当前进程占用的物理页面范围内置换；
 
@@ -25,7 +20,6 @@
 ### 9.2 最优算法、先进先出算法和最近最久未使用算法
 
 1. 最优算法、先进先出算法和LRU算法的思路？
-
  > 思路：页面队列的排序指标
 
  > OPT：未来最长时间不被访问；
@@ -48,29 +42,10 @@
 
  > 思路：增加修改位，以减少缺页处理开销（缺页时直接跳过修改过的页面）
 
-3. 改进时钟置换算法的极端情况: 如果所有的页面都被修改过了，这时需要分配新的页面时，算法的performance会如何？能否改进在保证正确的前提下提高缺页中断的处理时间？
-
- > 提示：中断时间很短，如果需要写回，可以采用异步的方式，也就是修改后的时钟算法会先清零修改位，但并不立即写回。
-
-4. LFU算法的思路？
+3. LFU算法的思路？
 
  > 思路：页面队列的排序指标是过去的页面访问次数
 
-5. 如何设计改进时钟算法的写回策略?
-
- > 提示：由于这个问题比较复杂，课上指出了大致方法（并没有彻底解决）：改进时钟算法引入了修改位，当修改位从1置为0时，该页表项会被标上 * 标记。课堂上讲的策略是立即把标上 * 的页面放入写队列，随后会将其写入硬盘。
-
- > 这里提出一个方法：实际上也可以标上*之后不将其放入写队列，而是使用1位来表示其需要写回，等到该页被替换掉的时候再将其放入写队列。
-
- > 比较：和老师讲的策略相比，
-
- > - 写回的次数会更少（更加懒惰），
-
- > - 写队列的容量会要求更小，每次缺页异常最多只需要将1页送入写队.老师的策略可能一次异常，在极端情况将所有页面放入写队列）
-
- > 每次是否缺页不会变化（因为仅仅只影响是否写回，不影响替换策略）
-
- > 这种策略会更好。
 
 ### 9.4 Belady现象和局部置换算法比较
 
@@ -81,20 +56,13 @@
  > 判断方法：构造反例或证明是栈式置换算法
 
 2. 请证明LRU算法不存在Belady现象。
-
- > 最优置换和LRU最欢都没有Belady异常。这两个都属于同一类算法，称为栈算法（stack algorithm），都绝不可能有Belady异常。栈算法可以证明为：对于帧数为n的内存页集合是对于帧数为n+1的内存页集合的子集。对于LRU算法，如果内存页的集合为最近引用的页，那么对于帧的增加，这n页仍然是最近引用的页，所以也仍然在内存中。
+ > 最优置换和LRU算法都没有Belady异常。这两个都属于同一类算法，称为栈算法（stack algorithm），都绝不可能有Belady异常。栈算法可以证明为：对于帧数为n的内存页集合是对于帧数为n+1的内存页集合的子集。对于LRU算法，如果内存页的集合为最近引用的页，那么对于帧的增加，这n页仍然是最近引用的页，所以也仍然在内存中。
 
  > http://blog.sina.com.cn/s/blog_630c97f20100wn7r.html
 
  > https://hkn.eecs.berkeley.edu/examfiles/cs162_fa00_mt2_sol.txt
 
  > http://cseweb.ucsd.edu/classes/sp02/cse120_B/stack.html
-
-2. 几种局部置换算法的相关性：什么地方是相似的？什么地方是不同的？为什么有这种相似或不同？
-
- > 队列排序指标的取值一致或近似后一致时，算法就会相似。如：只访问一次时的LRU和FIFO、只记录是否访问并都访问过时的clock和FIFO。
-
- > 队列排序指标表现为取值不同时，算法行为就会不同。如：有访问频度变化时的LRU与FIFO。
 
 ### 9.5 工作集置换算法
 
@@ -123,7 +91,7 @@
 ### 9.6 缺页率置换算法
 
 1. 缺页率算法的思路？
-
+2. 
  > 缺页率是指缺页平均时间间隔的倒数；
 
  > 思路：保持适度的缺页率。即缺页率过高时增加常驻集；缺页率过低时减少常驻集；
@@ -146,21 +114,22 @@
 
  > 进程切换会导致进程占用的页面被全部换出
 
-## 小组思考题目
-
 ----
 
-1.（spoc）根据你的`学号 mod 4`的结果值，确定选择四种页面置换算法（0：LRU置换算法，1:改进的clock 页置换算法，2：工作集页置换算法，3：缺页率置换算法）中的一种来设计一个应用程序（可基于python, ruby, C, C++，LISP等）模拟实现，并给出测试用例和测试结果。请参考如python代码或独自实现。
- - [页置换算法实现的参考实例](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab3/page-replacement-policy.py)
- 
-2. 请判断OPT、LRU、FIFO、Clock和LFU等各页面置换算法是否存在Belady现象？如果存在，给出实例；如果不存在，给出证明。
- 
 ## 扩展思考题
-（1）了解LIRS页置换算法的设计思路，尝试用高级语言实现其基本思路。此算法是江松博士（导师：张晓东博士）设计完成的，非常不错！
 
-参考信息：
+1.  改进时钟置换算法的极端情况: 如果所有的页面都被修改过了，这时需要分配新的页面时，算法的performance会如何？能否改进在保证正确的前提下提高缺页中断的处理时间？
 
- - [LIRS conf paper](http://www.ece.eng.wayne.edu/~sjiang/pubs/papers/jiang02_LIRS.pdf)
- - [LIRS journal paper](http://www.ece.eng.wayne.edu/~sjiang/pubs/papers/jiang05_LIRS.pdf)
- - [LIRS-replacement ppt1](http://dragonstar.ict.ac.cn/course_09/XD_Zhang/(6)-LIRS-replacement.pdf)
- - [LIRS-replacement ppt2](http://www.ece.eng.wayne.edu/~sjiang/Projects/LIRS/sig02.ppt)
+2.  如何设计改进时钟算法的写回策略?
+
+3. （spoc）根据你的`学号 mod 4`的结果值，确定选择四种页面置换算法（0：LRU置换算法，1:改进的clock 页置换算法，2：工作集页置换算法，3：缺页率置换算法）中的一种来设计一个应用程序（可基于python, ruby, C, C++，LISP等）模拟实现，并给出测试用例和测试结果。请参考如python代码或独自实现。
+ - [页置换算法实现的参考实例](https://github.com/chyyuu/ucore_lab/blob/master/related_info/lab3/page-replacement-policy.py)     
+
+4. 请判断OPT、LRU、FIFO、Clock和LFU等各页面置换算法是否存在Belady现象？如果存在，给出实例；如果不存在，给出证明。
+
+5. 了解LIRS页置换算法的设计思路，尝试用高级语言实现其基本思路。此算法是江松博士（导师：张晓东博士）设计完成的，非常不错！
+	- 参考信息：
+ 	- [LIRS conf paper](http://www.ece.eng.wayne.edu/~sjiang/pubs/papers/jiang02_LIRS.pdf)
+	 - [LIRS journal paper](http://www.ece.eng.wayne.edu/~sjiang/pubs/papers/jiang05_LIRS.pdf)
+	 - [LIRS-replacement ppt1](http://dragonstar.ict.ac.cn/course_09/XD_Zhang/(6)-LIRS-replacement.pdf)
+	 - [LIRS-replacement ppt2](http://www.ece.eng.wayne.edu/~sjiang/Projects/LIRS/sig02.ppt)
