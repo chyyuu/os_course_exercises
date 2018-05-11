@@ -122,3 +122,5 @@
   -  目前的lab7-answer中管程的实现是Hansen管程类型还是Hoare管程类型？请在lab7-answer中实现另外一种类型的管程。
   -  现在的管程（条件变量）实现是否有bug?
 
+ > [Piazza上关于count的讨论](https://piazza.com/class/i5j09fnsl7k5x0?cid=866)
+ 
