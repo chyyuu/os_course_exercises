@@ -118,7 +118,7 @@ Virtual Address 7268:
 
 （4）假设你有一台支持[反置页表](http://en.wikipedia.org/wiki/Page_table#Inverted_page_table)的机器，请问你如何设计操作系统支持这种类型计算机？请给出设计方案。
 
- (5)[X86的页面结构](http://os.cs.tsinghua.edu.cn/oscourse/OS2018spring/lecture06)
+ (5)[X86的页面结构](http://os.cs.tsinghua.edu.cn/oscourse/OS2019spring/lecture06)
 ---
 
 ## 扩展思考题

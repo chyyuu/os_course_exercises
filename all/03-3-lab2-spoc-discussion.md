@@ -1,4 +1,4 @@
-# lec7\(lab2\) SPOC思考题
+# lec7:  lab2 SPOC思考题
 
 NOTICE
 

@@ -1,4 +1,4 @@
-# lab0 SPOC思考题
+# lec2：lab0 SPOC思考题
 
 ##**提前准备**
 （请在上课前完成，option）
@@ -19,6 +19,8 @@
 - 你理解的对于类似ucore这样需要进程/虚存/文件系统的操作系统，在硬件设计上至少需要有哪些直接的支持？至少应该提供哪些功能的特权指令？
 
 - 你理解的x86的实模式和保护模式有什么区别？物理地址、线性地址、逻辑地址的含义分别是什么？
+
+- 你理解的RV的特权模式有什么区别？不同 模式在地址访问方面有何特征？
 
 - 理解list_entry双向链表数据结构及其4个基本操作函数和ucore中一些基于它的代码实现（此题不用填写内容）
 
@@ -77,9 +79,12 @@ SETGATE(intr, 1,2,3,0);
 
   - ##### [[IA-32 Intel Architecture Software Developer's Manuals](http://www.intel.com/content/www/us/en/processors/architectures-software-developer-manuals.html)]
 
+
+请在rcore中找一段你认为难度适当的RV汇编代码，尝试解释其含义。
+
 #### 练习二
 
-宏定义和引用在内核代码中很常用。请枚举ucore中宏定义的用途，并举例描述其含义。
+宏定义和引用在内核代码中很常用。请枚举ucore或rcore中宏定义的用途，并举例描述其含义。
 
  > 利用宏进行复杂数据结构中的数据访问；
  > 利用宏进行数据类型转换；如 to_struct, 

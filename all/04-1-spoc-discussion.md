@@ -1,4 +1,4 @@
-#lec8 虚拟内存spoc练习
+#lec8: 虚拟内存spoc练习
 
 
 NOTICE

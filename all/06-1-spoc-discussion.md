@@ -1,4 +1,4 @@
-# 调度算法概念(lec 15) spoc 思考题
+# lec15: 调度算法概念 spoc 思考题
 
 
 - 有"spoc"标记的题是要求拿清华学分的同学要在实体课上完成，并按时提交到学生对应的ucore_code和os_exercises的git repo上。
