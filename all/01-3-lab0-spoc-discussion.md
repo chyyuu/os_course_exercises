@@ -18,7 +18,18 @@
 
 - 你理解的对于类似ucore这样需要进程/虚存/文件系统的操作系统，在硬件设计上至少需要有哪些直接的支持？至少应该提供哪些功能的特权指令？
 
-- 你理解的x86的实模式和保护模式有什么区别？物理地址、线性地址、逻辑地址的含义分别是什么？
+进程的切换需要硬件支持时钟中断；虚存管理需要地址映射机制，从而需要MMU等硬件；对于文件系统，需要硬件有稳定的存储介质来保证操作系统的持久性。
+对应的，应当提供中断使能，触发软中断等中断相关的，设置内存寻址模式，设置页表等内存管理相关的，执行I/O操作等文件系统相关的特权指令。
+
+- 你理解的x86的实模式和保护模式有什么区别？你认为从实模式切换到保护模式需要注意那些方面？
+
+护模式和实模式的根本区别是进程内存是否受保护。实模式将整个物理内存看成分段的区域，程序代码和数据位于不同区域，系统程序和用户程序没有区别对待，而且每一个指针都是指向“实在”的物理地址。这样一来，用户程序的一个指针如果指向了系统程序区域或其他用户程序区域，并改变了值，那么对于这个被修改的系统程序或用户程序，其后果就很可能是灾难性的。为了克服这种低劣的内存管理方式，处理器厂商开发出保护模式。这样，物理内存地址不能直接被程序访问，程序内部的地址（虚拟地址）要由操作系统转化为物理地址去访问，程序对此一无所知。
+
+- 物理地址、线性地址、逻辑地址的含义分别是什么？它们之间有什么联系？
+
+* 物理地址：是处理器提交到总线上用于访问计算机系统中的内存和外设的最终地址。
+* 逻辑地址：在有地址变换功能的计算机中，访问指令给出的地址叫逻辑地址。
+* 线性地址：线性地址是逻辑地址到物理地址变换之间的中间层，是处理器通过段(Segment)机制控制下的形成的地址空间。
 
 - 你理解的risc-v的特权模式有什么区别？不同 模式在地址访问方面有何特征？
 
@@ -63,6 +74,55 @@ SETGATE(intr, 1,2,3,0);
 ```
 请问执行上述指令后， intr的值是多少？
 
+对应代码如下：
+```c
+#include <stdio.h>
+
+typedef unsigned uint32_t;
+
+#define STS_IG32 0xE  // 32-bit Interrupt Gate
+#define STS_TG32 0xF  // 32-bit Trap Gate
+
+#define SETGATE(gate, istrap, sel, off, dpl)             \
+    {                                                    \
+        (gate).gd_off_15_0 = (uint32_t)(off)&0xffff;     \
+        (gate).gd_ss = (sel);                            \
+        (gate).gd_args = 0;                              \
+        (gate).gd_rsv1 = 0;                              \
+        (gate).gd_type = (istrap) ? STS_TG32 : STS_IG32; \
+        (gate).gd_s = 0;                                 \
+        (gate).gd_dpl = (dpl);                           \
+        (gate).gd_p = 1;                                 \
+        (gate).gd_off_31_16 = (uint32_t)(off) >> 16;     \
+    }
+
+/* Gate descriptors for interrupts and traps */
+struct gatedesc {
+    unsigned gd_off_15_0 : 16;   // low 16 bits of offset in segment
+    unsigned gd_ss : 16;         // segment selector
+    unsigned gd_args : 5;        // # args, 0 for interrupt/trap gates
+    unsigned gd_rsv1 : 3;        // reserved(should be zero I guess)
+    unsigned gd_type : 4;        // type(STS_{TG,IG32,TG32})
+    unsigned gd_s : 1;           // must be 0 (system)
+    unsigned gd_dpl : 2;         // descriptor(meaning new) privilege level
+    unsigned gd_p : 1;           // Present
+    unsigned gd_off_31_16 : 16;  // high bits of offset in segment
+};
+
+int main(int argc, char const* argv[]) {
+    unsigned intr = 8;
+
+    gatedesc gate = *(gatedesc*)&intr;
+    SETGATE(gate, 1, 2, 3, 0);
+
+    intr = *(unsigned*)&gate;
+    printf("0x%x\n", intr);
+    return 0;
+}
+```
+
+输出结果为`0x20003`，若将`SETGATE(gate, 1, 2, 3, 0)`改为`SETGATE(gate, 0, 1, 2, 3)`，则结果为`0x10002`。
+
 ### 课堂实践练习
 
 #### 练习一
@@ -74,6 +134,11 @@ SETGATE(intr, 1,2,3,0);
 #### 练习二
 
 宏定义和引用在内核代码中很常用。请枚举ucore或rcore中宏定义的用途，并举例描述其含义。
+
+
+## 问答题
+
+#### 在配置实验环境时，你遇到了那些问题，是如何解决的。
 
 ## 参考资料
  - [Intel格式和AT&T格式汇编区别](http://www.cnblogs.com/hdk1993/p/4820353.html)
