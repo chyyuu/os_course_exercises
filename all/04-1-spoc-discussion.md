@@ -144,7 +144,7 @@ PT6..0:页表的物理基址>>5
 5) Virtual Address 1e6f:
 ```
 
-请写出一个translation程序（可基于python、ruby、C、C++、LISP、JavaScript等），输入是一个虚拟地址，依据[物理内存模拟数据文件](./04-1-spoc-memdiskdata.md)自动计算出对应的pde index, pde contents, pte index, pte contents，the value of addr in phy page OR disk sector。
+请写出一个translation程序（可基于rust、python、ruby、C、C++、LISP、JavaScript等），输入是一个虚拟地址，依据[物理内存模拟数据文件](./04-1-spoc-memdiskdata.md)自动计算出对应的pde index, pde contents, pte index, pte contents，the value of addr in phy page OR disk sector。
 
 **提示:**
 ```
