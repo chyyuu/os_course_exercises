@@ -20,40 +20,81 @@ NOTICE
 
 1. X86有几个特权级？
 
+   > CPU支持4个特权级，通常操作系统只使用了2个。
+   >
+   > Reference: [Intel® 64 and IA-32 Architectures Software Developer Manuals](http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring/lecture04?action=AttachFile&do=view&target=325462-sdm-vol-1-2abcd-3abcd.pdf) Page 152/4684: 6.3.5 Calls to Other Privilege Levels
 
 2. 不同特权级有什么区别？
 
+   > 区别：特权指令只能在ring 0使用；一条指令在不同特权下能访问的数据范围是不一样的；一条指令在不同特权级下的行为是不一样的；
 
 3. 请说明CPL、DPL和RPL在中断响应、函数调用和指令执行时的作用。
 
+   > 访问门时：从低优先级代码访问高优先级服务
+   >
+   > 访问段时：从高优先级代码访问低优先级数据
+   >
+   > Reference: [Intel® 64 and IA-32 Architectures Software Developer Manuals](http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring/lecture04?action=AttachFile&do=view&target=325462-sdm-vol-1-2abcd-3abcd.pdf) Page 2818/4684: 5.6 PRIVILEGE LEVEL CHECKING WHEN ACCESSING DATA SEGMENTS
 
 4. 写一个示例程序，完成4个特权级间的函数调用和数据访问时特权级控制的作用。
 
 ### 7.2 了解特权级切换过程
 
 1. 一条指令在执行时会有哪些可能的特权级判断？
+
+  > 当代码访问数据时，需要check 当前特权级是否等于或高于要访问的数据段的DPL。
+  >
+  > 如果是通过段寄存器SS访问数据段，则要求CPL、RPL = DPL。
+  >
+  > 如果代码涉及到控制转移，则一般只允许低特权级调用高特权级代码。
+  >
+  > 发生中断或异常时，需要判断当前的门描述符的特权级和目标代码的特权级。
+
 2. 在什么情况下会出现特权级切换？
+
+  > 当低特权级代码调用高特权级代码时，或者中断等发生时。
 
 3. int指令在ring0和ring3的执行行为有什么不同？
 
+   > 压栈内容是不同的，多了一个SS:ESP的压栈；进行了栈切换；
 
 4. 如何利用int和iret指令完成不同特权级的切换？
 
+   > 人工构造需要的栈结构，然后通过int和iret指令进行切换；
 
 5. TSS和Task Register的作用是什么？
 
- > [Task state segment](https://en.wikipedia.org/wiki/Task_state_segment)
-
- > Reference: [Intel® 64 and IA-32 Architectures Software Developer Manuals](http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring/lecture04?action=AttachFile&do=view&target=325462-sdm-vol-1-2abcd-3abcd.pdf) Page 2897/4684: 7.2.1 Task-State Segment (TSS)
+   > [Task state segment](https://en.wikipedia.org/wiki/Task_state_segment)
+   >
+   > Reference: [Intel® 64 and IA-32 Architectures Software Developer Manuals](http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring/lecture04?action=AttachFile&do=view&target=325462-sdm-vol-1-2abcd-3abcd.pdf) Page 2897/4684: 7.2.1 Task-State Segment (TSS)
 
 ### 7.3 了解段/页表
 
 1. 一条指令执行时最多会出现多少次地址转换？
+
+   > 3次：指令地址，源操作数地址，目的操作数地址
+
 2. 描述X86-32的MMU地址转换过程；
+
+  > 从虚拟地址通过段机制转换成线性地址，之后通过页机制从线性地址转为物理地址。
 
 ### 7.4 了解UCORE建立段/页表
 
-1. 分析MMU的使能过程，尽可能详细地分析在执行进入保护械的代码“movl %eax, %cr0 ; ljmp $CODE_SEL, $0x0”时，CPU的状态和寄存器内容的变化。
+1. 分析MMU的使能过程，尽可能详细地分析在执行进入保护模式的代码
+
+   ` movl %eax, %cr0 ; ljmp $CODE_SEL, $0x0`
+
+   时，CPU的状态和寄存器内容的变化。
+
+   > References:
+   >
+   > [How does setting the PE flag in CR0 enable protected mode?](http://stackoverflow.com/questions/26679682/how-does-setting-the-pe-flag-in-cr0-enable-protected-mode)
+   >
+   > [保护模式](http://baike.baidu.com/item/%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F)
+   >
+   > [Intel® 64 and IA-32 Architectures Software Developer Manuals](http://os.cs.tsinghua.edu.cn/oscourse/OS2017spring/lecture04?action=AttachFile&do=view&target=325462-sdm-vol-1-2abcd-3abcd.pdf) Page 2981/4684: 9.9.1 Switching to Protected Mode
+   >
+   > [教程02: 保护模式](http://skelix.net/skelixos/tutorial02_zh.html)
 
 2. 分析页表的建立过程；
 
@@ -68,7 +109,17 @@ x86保护模式中权限管理无处不在，下面哪些时候要检查访问�
 * [x] 中断处理过程中
 * [ ] ALU计算过程中
 
+> 前三个需要。这里假定ALU完成计算所需数据都已经在CPU内部了。
+
 请描述ucore OS建立页机制的准备工作包括哪些步骤？ \(w4l1\)
+
+```
+  + 采分点：说明了ucore OS在让页机制正常工作的主要准备工作
+  - 答案没有涉及如下3点；（0分）
+  - 描述了对GDT的初始化,完成了段机制（1分）
+  - 除第二点外进一步描述了对物理内存的探测和空闲物理内存的管理。（2分）
+  - 除上述两点外，进一步描述了页表建立初始过程和设置CR0控寄存器某位来使能页（3分）
+```
 
 
 ## 小组思考题
@@ -107,9 +158,6 @@ e820map:
 
 修改lab2，让其显示`type="some string"` 让人能够读懂，而不是不好理解的数字1,2  \(easy\)
 
-* [x]
->
-
 （4）\(spoc\)有一台只有页机制的简化80386的32bit计算机，有地址范围位0~256MB的物理内存空间（physical memory），可表示大小为256MB，范围为0xC0000000~0xD0000000的虚拟地址空间（virtual address space）,页大小（page size）为4KB，采用二级页表，一个页目录项（page directory entry ，PDE）大小为4B,一个页表项（page-table entries PTEs）大小为4B，1个页目录表大小为4KB，1个页表大小为4KB。
 
 ```
@@ -147,9 +195,13 @@ va 0xce6c3f32, pa 0x007d4f32
 ```
 va 0xcd82c07c, pa 0x0c20907c, pde_idx 0x00000336, pde_ctx  0x00037003, pte_idx 0x0000002c, pte_ctx  0x0000c20b
 ```
->> 注意：上述参考输出只是表示了正确的格式，其数值并不正确。
+>注意：上述参考输出只是表示了正确的格式，其数值并不正确。
 ---
 (5) 尝试在内存为256字节的OP-CPU机器上，设计一个支持自映射的内存空间部局。说明其页表起始逻辑地址、一级和二级虚拟地址计算公式。
+
+> 小组思考题答案可参考往届学生回答。
+>
+> https://piazza.com/class/i5j09fnsl7k5x0?cid=692
 
 ## 开放思考题
 
@@ -157,10 +209,72 @@ va 0xcd82c07c, pa 0x0c20907c, pde_idx 0x00000336, pde_ctx  0x00037003, pte_idx 0
 
 （1）请简要分析Intel的x64 64bit体系结构下的分页机制是如何实现的
 
-
+```
+  + 采分点：说明Intel x64架构的分页机制的大致特点和页表执行过程
+  - 答案没有涉及如下3点；（0分）
+  - 正确描述了x64支持的物理内存大小限制（1分）
+  - 正确描述了x64下的多级页表的级数和多级页表的结构（2分）
+  - 除上述两点外，进一步描述了在多级页表下的虚拟地址-->物理地址的映射过程（3分）
+```
 （2）Intel8086不支持页机制，但有hacker设计过包含未做任何改动的8086CPU的分页系统。猜想一下，hacker是如何做到这一点的？提示：想想MMU的逻辑位置
 
+> 可能是将段机制实现为一级页表？没有查到相关资料，有疑问的同学可以问陈渝老师。
 
+## 页表自映射机制思考题
+
+1. (easy) 自映射的目的是什么？它相比线性映射的好处、不足是什么？
+
+   > 目的：将页表本身映射到一片固定的虚拟地址空间。
+   >
+   > 好处：将**页表项**的虚拟地址和**它所对应页**的地址关联起来，方便**对页表本身的访问和修改操作**。在64位的四级页表下自映射优势更加明显：访问任意页表项只需一次地址转换，而线性映射需要查询多次物理地址。
+   >
+   > 不足：需要占用一个页目录项（对应很大一片虚拟地址空间）。逻辑上不如线性映射简单直观。
+   >
+   > 注：网上有观点认为自映射在x86-32下的好处是节省了4K的内存，我认为这并不是它的主要目的，节省4K的内存 是以 占用4M的虚拟空间 为代价换来的。
+
+2. (easy) Linux和Windows分别采用哪种映射机制（线性映射or自映射）？它们的选择背后有什么原因吗？
+
+   > Linux采用线性映射，Windows采用自映射。
+   >
+   > 众说纷纭，可能是哲学问题。
+
+以下为optional：
+
+1. (midd) 在x86-32中，假设页目录的第R个页表项是自映射的，那么：
+
+   1. 可以通过哪个虚拟地址访问到页目录？
+
+      > `(R << 22) | (R << 12) `
+
+   2. 控制虚地址`vaddr`所在页的页表项地址是多少？（假设在`vaddr`发生了缺页异常，根据你给出的答案，就可以快速地修改相应的页表项）
+
+      > `(R << 22) | (vaddr >> 10) & (~0x3) `
+
+   3. 当你试图访问上述页表项时，又发生了缺页异常。这可能是什么原因？
+
+      > 页表项所在的页表并不存在，即页目录中对应的项不存在，整个`vaddr`所在的4M空间都没有映射。
+
+2. (midd) 如何合理设置自映射页表，使得用户程序可以看到自己的页表，但不能修改或是看到内核部分？（参考ucore lab中的`sys_pgdir`）
+
+   > 设置自映射项U=1，W=0
+
+3. (hard) 修改自映射页表：现在有两个自映射页表A和B，其中A是活动的（CR3指向pgdir），B是非活动的。如何在不切换页表（不修改CR3）的条件下，通过自映射区域修改页表B？
+
+   > 设置A的自映射项，指向B的页目录所在物理帧。此时页表虚拟空间映射的都是B的页表，即可对B进行修改。在修改完成后，需要恢复A的自映射项。注意此时已经不能通过页表虚拟空间访问到A的页目录了，因此第一步需要给A的页目录映射到另一个临时的虚拟页上。
+
+4. (challenge) RISCV中的自映射机制：
+
+   如果照搬x86的方式，在RISCV中配置自映射页表，那么会在访问页目录时触发PageFault。原因是，根据规范，RISCV中的页表项不能被同时解读为【指向页表】和【指向数据页】（前者的flags是V，后者是VRW）。如果设置为V，那么在解读最后一级时会触发异常，如果设置为VRW，则会在第一级被认为是一个大数据页。而在x86中，同一个页表项在最后一级被解读为指向数据页，在中间级则被解读为指向页表，因此方便实现自映射。
+
+   请你在x86自映射的基础上进行一些修改，为RISCV32设计一种自映射的实现方案。并描述一次修改页表项的完整过程。
+
+   > 可参考 [ucore_os_lab on rv32](https://github.com/chyyuu/ucore_os_lab/blob/be84ee1f65cb5a3df90197c5b15fcd08bf9f6dbc/labcodes_answer/lab2/kern/mm/pmm.c#L209) 的实现：
+   >
+   > 使用两个自映射项（设为R，R+1），都指向页目录物理帧，但flags分别是V和VRW。这样就可以通过地址`(R << 22) | ((R+1) << 12)`访问到页目录。对于虚地址`vaddr`，它所对应的页表项地址仍为`(R << 22) | (vaddr >> 10) & (~0x3)`，但在访问之前需要将页目录项的flags由V改为VRW，完成后再改回来。
+   >
+   > 对于RISCV64，情况更为复杂，需要新的实现技巧，有兴趣可参考[rcore中的实现](https://github.com/rcore-os/riscv/blob/master/src/paging/recursive.rs)😊。
+
+参考阅读：[Advanced Paging](https://os.phil-opp.com/advanced-paging/)
 
 ## v9-cpu相关
 
@@ -176,6 +290,8 @@ va 0xcd82c07c, pa 0x0c20907c, pde_idx 0x00000336, pde_ctx  0x00037003, pte_idx 0
 如果在建立页表过程中，使能页机制前，如果不加上`pg_dir[0]=....`，为何v9-cpu模拟器会出现"kernel stack fault"的fatal error并推出？
 
 
-
 * 请比较一下os在v9-cpu和x86上建立页表过程的不同之处，需要考虑硬件设计上的差异
-* [x]
+
+> 可以参考往届学生回答
+>
+> https://piazza.com/class/i5j09fnsl7k5x0?cid=688
