@@ -1,4 +1,4 @@
-# lab5 spoc 思考题
+# lec14: lab5 spoc 思考题
 
 - 有"spoc"标记的题是要求拿清华学分的同学要在实体课上完成，并按时提交到学生对应的ucore_code和os_exercises的git repo上。
 
@@ -11,13 +11,13 @@
 
  > 用户态代码段的初始化
 
-1. 系统调用的参数传递过程？
+2. 系统调用的参数传递过程？
 
  > 参见：用户态函数syscall()中的汇编代码；
 
  > Ref: https://www.ibm.com/developerworks/library/l-ia/index.html
 
-1. getpid的返回值放在什么地方了？
+3. getpid的返回值放在什么地方了？
 
  > 参见：用户态函数syscall()中的汇编代码；
 

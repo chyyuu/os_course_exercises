@@ -1,4 +1,4 @@
-# 调度算法概念(lec 15) spoc 思考题
+# lec15: 调度算法概念 spoc 思考题
 
 
 - 有"spoc"标记的题是要求拿清华学分的同学要在实体课上完成，并按时提交到学生对应的ucore_code和os_exercises的git repo上。
@@ -22,7 +22,7 @@
 
  > 当前线程被抢先（时间片用完、高优先级线程就绪）
 
-2. 当操作系统的处理机调度导致线程切换时，暂停线程的当前指令指针可能在什么位置？用户态代码或内核代码？给出理由。
+3. 当操作系统的处理机调度导致线程切换时，暂停线程的当前指令指针可能在什么位置？用户态代码或内核代码？给出理由。
 
  > 系统调用返回时可能出现线程切换
 
@@ -34,7 +34,7 @@
 
  > 每次占用CPU执行指令的时间长度分布多数在10ms以内；
 
-1. 处理机调度的目标是什么？
+2. 处理机调度的目标是什么？
 
  > CPU利用率（CPU使用率、吞吐率、周转时间、等待时间）
 
@@ -42,15 +42,15 @@
 
  > 公平性（CPU时间分配公平性）
 
-1. 尝试在ucore上写一个外排序程序，然后分析它的执行时间分布统计（每次切换后开始执行时间和放弃CPU的时间、当前用户和内核栈信息）。
+3. 尝试在ucore上写一个外排序程序，然后分析它的执行时间分布统计（每次切换后开始执行时间和放弃CPU的时间、当前用户和内核栈信息）。
 
-2. 在Linux上有一个应用程序time，可以统计应用程序的执行时间信息。请分析它是如何统计进程执行时间信息的。如可能，请在ucore上实现相同功能的应用程序。下面是可能的参考。
+4. 在Linux上有一个应用程序time，可以统计应用程序的执行时间信息。请分析它是如何统计进程执行时间信息的。如可能，请在ucore上实现相同功能的应用程序。下面是可能的参考。
    - [Linux用户态程序计时方式详解](http://www.cnblogs.com/clover-toeic/p/3845210.html)
    - [Get Source Code for any Linux Command](http://www.thegeekstuff.com/2010/02/get-source-code-for-any-linux-command/)
    - [How does time command work](http://unix.stackexchange.com/questions/29800/how-does-time-command-work)
    - https://github.com/illumos/illumos-gate/blob/master/usr/src/cmd/time/time.c
 
-3. 尝试获取一个操作系统的调度算法的性能统计数据（CPU使用率、进程执行）。
+5. 尝试获取一个操作系统的调度算法的性能统计数据（CPU使用率、进程执行）。
 
 ### 15.3 先来先服务、短进程优先和最高响应比优先调度算法
 

@@ -1,4 +1,4 @@
-# 同步互斥(lec 19 lab7) spoc 思考题
+# lec 19: 同步互斥lab7 spoc 思考题
 
 - 有"spoc"标记的题是要求拿清华学分的同学在实体课上完成的，对于学堂在线的选课同学是可选题目。
 
@@ -122,3 +122,5 @@
   -  目前的lab7-answer中管程的实现是Hansen管程类型还是Hoare管程类型？请在lab7-answer中实现另外一种类型的管程。
   -  现在的管程（条件变量）实现是否有bug?
 
+ > [Piazza上关于count的讨论](https://piazza.com/class/i5j09fnsl7k5x0?cid=866)
+ 

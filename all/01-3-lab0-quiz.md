@@ -31,6 +31,15 @@
 
 > qemu是一个支持模拟多种CPU的模拟软件
 
+在rcore lab的实验环境搭建中，用来模拟一台RISC-V机器的软件是()
+
+- [ ] mips
+- [ ] bash
+- [ ] wine
+- [x] qemu
+
+> qemu是一个支持模拟多种CPU的模拟软件
+
 
 ---
 
@@ -64,5 +73,14 @@ x86-32 CPU（即80386）有多种运行模式，ucore lab中碰到和需要处�
 - [ ] 虚拟8086模式
 
 > ucore需要碰到和处理16位的实模式和32位的保护模式
+
+RISC-V CPU有多种特权模式，rcore lab中碰到和需要处理哪些特权模式()
+
+- [x] M-mode
+- [x] S-mode
+- [ ] H-mode
+- [x] U-mode
+
+> rcore需要碰到和处理M/S/U-mode
 
 ---
