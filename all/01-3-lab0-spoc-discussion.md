@@ -1,16 +1,12 @@
-# lec2：lab0 SPOC思考题
+# lec2：SPOC思考题
 
 ## **提前准备**
 （请在上课前完成，option）
 
 - 完成lec2的视频学习
-- git pull ucore_os_lab, os_tutorial_lab, os_course_exercises  in github repos。这样可以在本机上完成课堂练习。
 - 了解代码段，数据段，执行文件，执行文件格式，堆，栈，控制流，函数调用,函数参数传递，用户态（用户模式），内核态（内核模式）等基本概念。思考一下这些基本概念在不同操作系统（如linux, ucore,etc.)与不同硬件（如 x86, riscv, v9-cpu,etc.)中是如何相互配合来体现的。
-- 安装好ucore实验环境，能够编译运行ucore labs中的源码。
-- 会使用linux中的shell命令:objdump，nm，file, strace，gdb等，了解这些命令的用途。
-- 会编译，运行，使用v9-cpu的dis,xc, xem命令（包括启动参数），阅读v9-cpu中的v9\-computer.md文档，了解汇编指令的类型和含义等，了解v9-cpu的细节。
-- 了解基于v9-cpu的执行文件的格式和内容，以及它是如何加载到v9-cpu的内存中的。
-- 在piazza上就学习中不理解问题进行提问。
+- 安装好ucore/rcore实验环境，能够编译运行ucore/rcore labs中的源码。
+- 会使用实验中的常用的工具和命令: objdump，nm，file, strace，gcc, gdb等，了解这些命令的用途。
 
 ---
 
@@ -80,7 +76,47 @@ SETGATE(intr, 1,2,3,0);
 
 ## 问答题
 
-#### 在配置实验环境时，你遇到了那些问题，是如何解决的。
+### 第一节
+#### Q1：应用程序能直接调用内核的函数吗？说明原因，举个例子。
+A：
+
+#### Q2：内核能直接调用应用程序的函数吗？说明原因，举个例子。
+A：
+
+#### Q3：请说出你知道的特权指令或特权寄存器（x86/arm/mips/risc-v）
+A:
+
+#### Q4: 除了基于页表的地址空间隔离，请问还能想到其他的地址空间隔离方式吗？
+A：
+
+#### Q5：中断/异常有何区别？如果没有中断机制，应用程序/操作系统要如何与外设进行交互？
+A：
+
+### 第二节
+#### Q1：你是如何理解和描述OS与APP的交互接口？
+A：
+
+#### Q2：你是如何理解和描述OS与CPU的交互接口？
+A：
+
+#### Q3：我们理解的RISC-V的Supervisor特权模式适合运行哪种类型的软件？
+A:
+
+#### Q4: 如果让一个通用操作系统（如Linux）运行在RISC-V的User模式，请问会发生什么现象？是否有相应的解决方法？
+A：
+
+#### Q5：RISC-V的中断产生后，CPU首先会在哪种特权模式下运行？
+A：
+
+### 第三节 
+#### Q1：
+没问题
+
+### 第四节
+#### Q1：根据课程介绍，安装qemu-4.1+，通过qemu的monitor，查看ROM的指令是哪些？
+A：https://rcore-os.github.io/rCore_tutorial_doc/chapter2/part5.html
+
+
 
 ## 参考资料
  - [Intel格式和AT&T格式汇编区别](http://www.cnblogs.com/hdk1993/p/4820353.html)
